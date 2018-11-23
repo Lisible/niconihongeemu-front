@@ -1,0 +1,26 @@
+html {
+	background-color: #E5E5E5;
+}
+
+body {
+	margin: 0;
+
+	font-family: sans-serif;
+}
+
+header {
+	background-color: #C72657;
+	color: white;
+}
+
+h1 {
+	margin: 0;
+	font-size: 1.5em;
+	padding: 0.4em;
+}
+
+select {
+	border: none;
+	background-color: white;
+	-webkit-appearance: none;
+}
