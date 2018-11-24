@@ -17,6 +17,8 @@ h1 {
 	margin: 0;
 	font-size: 1.5em;
 	padding: 0.4em;
+	font-weight: 200;
+	letter-spacing: 0.02em;
 }
 
 select {

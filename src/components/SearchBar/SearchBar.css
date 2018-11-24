@@ -7,9 +7,9 @@
 
 }
 
-#search-bar:hover, #search-bar:focus-within {
+#search-bar:focus-within {
 	transform: translate(0.2em, -0.2em);
-	box-shadow: -4px 5px 10px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	box-shadow: -4px 3px 5px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
 }
 
 #search-bar input,
@@ -20,12 +20,13 @@
 	width: 100%;
 	border: none;
 	padding: 0;
-	user-select: none;
 
+	outline: 0;
 }
 
 #search-bar select, #search-bar button {
 	max-width: 5em;
+	user-select: none;
 }
 
 #search-bar select {
@@ -45,13 +46,29 @@
 #search-bar button {
 	border-radius: 0px 5px 5px 0px;
 	background-color: #c63d69;
-	color: white;
+	color: transparent;
 	overflow: hidden;
+	min-width: 4em;
+	max-width: 4em;
 	transition: all 0.3s;
+}
+
+#search-bar button:before {
+	content: '\f002';
+	position: relative;
+	left: calc(5em / 2 - 1.75em);
+	color: white;
+	font-size: 1.5em;
+	font-family: 'Font Awesome 5 Free';
+	transition: all 0.5s;
 }
 
 #search-bar button:active {
 	background-color: white;
+	transition: 0s;
+}
+
+#search-bar button:active:before {
 	color: #c63d69;
 	transition: 0s;
 }
