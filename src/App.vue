@@ -32,4 +32,33 @@ export default {
 #main-wrapper {
     margin: 2em;
 }
+
+header {
+  height: 3em;
+  line-height: 3em;
+  padding: 0.5em;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+h1 {
+  padding: 0;
+  vertical-align: middle;
+}
+
+h1:before {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  float: left;
+  font-size: 3rem;
+  padding-right: 0.2em;
+  content: '';
+  background-image: url(assets/img/nico.svg);
+  background-size: 1em 1em;
+  background-repeat: no-repeat;
+  width: 1em;
+  height: 1em;
+}
+
 </style>
