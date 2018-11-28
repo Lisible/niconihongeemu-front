@@ -26,3 +26,9 @@ select {
 	background-color: white;
 	-webkit-appearance: none;
 }
+
+button {
+	margin: 0;
+	padding: 0;
+	border: none;
+}

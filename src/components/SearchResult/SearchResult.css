@@ -1,0 +1,55 @@
+ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+#search-result > li > div {
+	background-color: white;
+	padding: 1em;
+	margin: 1em 0em;
+
+	transition: all 0.3s;
+}
+
+#search-result > li > div:before {
+	display: block;
+	background-color: #C72657;
+	color: white;
+	padding: 0.6em 2em;
+	width: 3em;
+	position: relative;
+	left: -1em;
+	top: -1em;
+
+	border-radius: 0em 0em 0.5em 0em;
+}
+
+#search-result > li > div.kanji-result:before {
+	content: 'Kanji';
+}
+
+#search-result > li > div.word-result:before {
+	content: 'Word';
+}
+
+#search-result > li > div.word-result > button {
+	bottom: 1.4em;
+}
+
+#search-result > li > div > span:first-child {
+	display: block;
+	font-size: 1.4em;
+	margin-bottom: 0.5em;
+}
+
+section h1 {
+	display: block;
+	font-size: 1.2em;
+	padding: 0;
+}
+
+#search-result > li > div:hover {
+	box-shadow: -4px 3px 5px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+	transform: translate(0.2em, -0.2em);
+	transition: all 0.3s;
+}
