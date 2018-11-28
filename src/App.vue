@@ -22,7 +22,7 @@ export default {
   },
   data: function(){
     return {
-      searching: false
+      searching: true
     }
   }
 }
@@ -41,12 +41,13 @@ header {
   overflow: hidden;
 }
 
-h1 {
+header h1 {
   padding: 0;
   vertical-align: middle;
+  transition: opacity 0.8s 0.5s;
 }
 
-h1:before {
+header h1:before {
   display: inline-block;
   position: relative;
   overflow: hidden;
@@ -59,6 +60,20 @@ h1:before {
   background-repeat: no-repeat;
   width: 1em;
   height: 1em;
+  transition: margin-left 3s, transform 1s 0.5s;
 }
+
+header h1:hover:before {
+  margin-left: 100%;
+  transform: rotateZ(360deg);
+  opacity: 1;
+  transition: margin-left 3s, transform 1s;
+}
+
+header h1:hover {
+  opacity: 0;
+  transition: opacity 0.5s 0.8s;
+}
+
 
 </style>
