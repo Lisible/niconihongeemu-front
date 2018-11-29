@@ -8,6 +8,8 @@ ul {
 	padding: 1em;
 	margin: 1em 0em;
 
+	border-radius: 5px;
+
 	transition: all 0.3s;
 }
 
@@ -21,7 +23,7 @@ ul {
 	left: -1em;
 	top: -1em;
 
-	border-radius: 0em 0em 0.5em 0em;
+	border-radius: 0.5em 0em 0.5em 0em;
 }
 
 #search-result > li > div.kanji-result:before {
@@ -32,14 +34,30 @@ ul {
 	content: 'Word';
 }
 
-#search-result > li > div.word-result > button {
-	bottom: 1.4em;
-}
-
 #search-result > li > div > span:first-child {
 	display: block;
 	font-size: 1.4em;
 	margin-bottom: 0.5em;
+}
+
+#search-result > li button {
+	display: block;
+	float: right;
+	position: relative;
+	bottom: 4em;
+	background-color: #C72657;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: white;
+	width: 4em;
+	height: 4em;
+	border-radius: 4em;
+	transition: all 0.2s;
+}
+
+#search-result > li button:hover {
+	box-shadow: -4px 3px 5px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+	transition: all 0.3s;
 }
 
 section h1 {
@@ -52,4 +70,20 @@ section h1 {
 	box-shadow: -4px 3px 5px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
 	transform: translate(0.2em, -0.2em);
 	transition: all 0.3s;
+}
+
+.writing-list {
+	margin-bottom: 1em;
+}
+
+.writing-list li {
+	display: inline-block;
+	background-color: #C72657;
+	color: white;
+	padding: 0.4em;
+	border-radius: 0.5em;
+}
+
+.writing-list li:not(:last-child) {
+	margin: 0 0.5em 0 0;
 }
