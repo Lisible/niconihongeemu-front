@@ -9,7 +9,7 @@ export default {
   },
   created: function() {
     this.$on('SearchEvent', (query, type) => {
-      console.log(type);
+      
     });
   },
   methods: {

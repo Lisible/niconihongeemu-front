@@ -4,13 +4,14 @@ export default {
 	name: 'search-bar',
 	data() {
 		return {
-			query: 'ABCDE',
-			type: 'any'
+			SearchType: SearchType,
+			query: '',
+			type: SearchType.ANY
 		}
 	},
 	methods: {
 		triggerSearchEvent: function(event){
-			this.$parent.$emit('SearchEvent', this.query, SearchType.searchTypeFromString(this.type));
+			this.$parent.$emit('SearchEvent', this.query, this.type);
 		}
 	}
 }

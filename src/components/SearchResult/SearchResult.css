@@ -6,7 +6,7 @@ ul {
 #search-result > li > div {
 	background-color: white;
 	padding: 1em;
-	margin: 1em 0em;
+	margin: 0em 0em;
 
 	border-radius: 5px;
 
@@ -98,4 +98,17 @@ section h1 {
 
 .writing-list li:not(:last-child) {
 	margin: 0 0.5em 0 0;
+}
+
+@media screen and (min-width: 900px) {
+	#search-result {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	#search-result > li {
+		flex-grow: 2;
+		padding: 0.5em;
+	}
 }

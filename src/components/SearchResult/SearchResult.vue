@@ -28,7 +28,6 @@
 					<span>Stroke count: 192345</span>
 					<span>JLPT N4</span>
 				</section>
-				<button>+</button>
 			</div>
 		</li>
 
@@ -64,7 +63,6 @@
 						<li>Meaning 5</li>
 					</ul>
 				</section>
-				<button>+</button>
 			</div>
 		</li>
 
@@ -100,7 +98,6 @@
 						<li>Meaning 5</li>
 					</ul>
 				</section>
-				<button>+</button>
 			</div>
 		</li>
 
@@ -136,7 +133,6 @@
 						<li>Meaning 5</li>
 					</ul>
 				</section>
-				<button>+</button>
 			</div>
 		</li>
 	</ul>
