@@ -7,6 +7,14 @@ export default {
     SearchBar,
     SearchResult
   },
+  created: function() {
+    this.$on('SearchEvent', (query, type) => {
+      console.log(type);
+    });
+  },
+  methods: {
+
+  },
   data: function(){
     return {
       searching: true

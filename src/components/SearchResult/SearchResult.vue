@@ -67,6 +67,78 @@
 				<button>+</button>
 			</div>
 		</li>
+
+		<li>
+			<div class="word-result">
+				<span>Word</span>
+
+				<section>
+					<h1>Kanji writings</h1>
+					<ul class="writing-list">
+						<li>Kanji writing 1</li>
+						<li>Kanji writing 2</li>
+						<li>Kanji writing 3</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Kana writings</h1>
+					<ul class="writing-list">
+						<li>Kana writing 1</li>
+						<li>Kana writing 2</li>
+						<li>Kana writing 3</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Meanings</h1>
+					<ul>
+						<li>Meaning 1</li>
+						<li>Meaning 2</li>
+						<li>Meaning 3</li>
+						<li>Meaning 4</li>
+						<li>Meaning 5</li>
+					</ul>
+				</section>
+				<button>+</button>
+			</div>
+		</li>
+
+		<li>
+			<div class="word-result">
+				<span>Word</span>
+
+				<section>
+					<h1>Kanji writings</h1>
+					<ul class="writing-list">
+						<li>Kanji writing 1</li>
+						<li>Kanji writing 2</li>
+						<li>Kanji writing 3</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Kana writings</h1>
+					<ul class="writing-list">
+						<li>Kana writing 1</li>
+						<li>Kana writing 2</li>
+						<li>Kana writing 3</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Meanings</h1>
+					<ul>
+						<li>Meaning 1</li>
+						<li>Meaning 2</li>
+						<li>Meaning 3</li>
+						<li>Meaning 4</li>
+						<li>Meaning 5</li>
+					</ul>
+				</section>
+				<button>+</button>
+			</div>
+		</li>
 	</ul>
 </template>
 
