@@ -1,15 +1,23 @@
+import Word from '@/model/Word';
+
 const ENDPOINT = 'http://localhost:3000/dictionnary/word/';
 
-export class WordProvider {
+export default class WordProvider {
 	constructor(){
 		this.endpoint = ENDPOINT;
 	}
 
 	searchWord(query) {
-		fetch(this.endpoint + query)
+		return fetch(this.endpoint + query)
 		.then(results => results.json())
 		.then(results => {
-			console.log(results);
+			let words = []
+			
+			results.forEach(function(r){
+				words.push(new Word(r.kanjiWritings, r.kanaWritings, r.definitions));
+			});
+
+			return words;
 		});
 	}
 }

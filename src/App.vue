@@ -5,7 +5,7 @@
     </header>
     <div id="main-wrapper">
         <search-bar></search-bar>
-        <search-result v-if="searching"></search-result>
+        <search-result v-if="searching" ref="searchResult"></search-result>
     </div>
   </div>
 </template>

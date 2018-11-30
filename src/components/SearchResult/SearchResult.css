@@ -6,7 +6,7 @@ ul {
 #search-result > li > div {
 	background-color: white;
 	padding: 1em;
-	margin: 0em 0em;
+	margin: 0em 0em 1em 0em;
 
 	border-radius: 5px;
 
@@ -110,5 +110,10 @@ section h1 {
 	#search-result > li {
 		flex-grow: 2;
 		padding: 0.5em;
+		
 	}
+
+	#search-result > li > div {
+	margin: 0;
+}
 }

@@ -1,138 +1,52 @@
 <template>
-	<ul id="search-result">
-		<li>
-			<div class="kanji-result">
-				<span>Kanji Literal</span>
-				<section>
+	<ul v-if="searchResultList !== null" id="search-result">
+		<li v-for="searchResult in searchResultList.getSearchResults()">
+
+			<div v-if="searchResult.getType() === 'kanji'" class="kanji-result">
+				<span>{{ searchResult.getResult().getLiteral() }}</span>
+				<section v-if="searchResult.getResult().getReadings().length > 0">
 					<h1>Readings</h1>
 					<ul class="writing-list">
-						<li>Reading 1</li>
-						<li>Reading 2</li>
-						<li>Reading 3</li>
-						<li>Reading 4</li>
-						<li>Reading 5</li>
+						<li v-for="reading in searchResult.getResult().getReadings()">
+							{{ reading }}
+						</li>
 					</ul>
 				</section>
-				<section>
+				<section v-if="searchResult.getResult().getMeanings().length > 0">
 					<h1>Meanings</h1>
-					<ul>
-						<li>Meaning 1</li>
-						<li>Meaning 2</li>
-						<li>Meaning 3</li>
-						<li>Meaning 4</li>
-						<li>Meaning 5</li>
+					<ul class="writing-list">
+						<li v-for="meaning in searchResult.getResult().getMeanings()">
+							{{ meaning }}
+						</li>
 					</ul>
 				</section>
 				<section>
 					<h1>Details</h1>
-					<span>Stroke count: 192345</span>
-					<span>JLPT N4</span>
+					<span>Stroke count: {{ searchResult.getResult().getStrokeCount() }}</span>
+					<span v-if="searchResult.getResult().getJLPTLevel() !== null">JLPT N{{ searchResult.getResult().getJLPTLevel() }}</span>
 				</section>
 			</div>
-		</li>
-
-		<li>
-			<div class="word-result">
-				<span>Word</span>
-
-				<section>
+			<div v-if="searchResult.getType() === 'word'" class="word-result">
+				<section v-if="searchResult.getResult().getKanjiWritings().length > 0">
 					<h1>Kanji writings</h1>
 					<ul class="writing-list">
-						<li>Kanji writing 1</li>
-						<li>Kanji writing 2</li>
-						<li>Kanji writing 3</li>
+						<li v-for="kanjiWriting in searchResult.getResult().getKanjiWritings()">{{ kanjiWriting }}</li>
 					</ul>
 				</section>
 
-				<section>
+				<section v-if="searchResult.getResult().getKanaWritings().length > 0">
 					<h1>Kana writings</h1>
 					<ul class="writing-list">
-						<li>Kana writing 1</li>
-						<li>Kana writing 2</li>
-						<li>Kana writing 3</li>
+						<li v-for="kanaWriting in searchResult.getResult().getKanaWritings()">{{ kanaWriting }}</li>
 					</ul>
 				</section>
 
-				<section>
+				<section v-if="searchResult.getResult().getMeanings().length > 0">
 					<h1>Meanings</h1>
-					<ul>
-						<li>Meaning 1</li>
-						<li>Meaning 2</li>
-						<li>Meaning 3</li>
-						<li>Meaning 4</li>
-						<li>Meaning 5</li>
-					</ul>
-				</section>
-			</div>
-		</li>
-
-		<li>
-			<div class="word-result">
-				<span>Word</span>
-
-				<section>
-					<h1>Kanji writings</h1>
-					<ul class="writing-list">
-						<li>Kanji writing 1</li>
-						<li>Kanji writing 2</li>
-						<li>Kanji writing 3</li>
-					</ul>
-				</section>
-
-				<section>
-					<h1>Kana writings</h1>
-					<ul class="writing-list">
-						<li>Kana writing 1</li>
-						<li>Kana writing 2</li>
-						<li>Kana writing 3</li>
-					</ul>
-				</section>
-
-				<section>
-					<h1>Meanings</h1>
-					<ul>
-						<li>Meaning 1</li>
-						<li>Meaning 2</li>
-						<li>Meaning 3</li>
-						<li>Meaning 4</li>
-						<li>Meaning 5</li>
-					</ul>
-				</section>
-			</div>
-		</li>
-
-		<li>
-			<div class="word-result">
-				<span>Word</span>
-
-				<section>
-					<h1>Kanji writings</h1>
-					<ul class="writing-list">
-						<li>Kanji writing 1</li>
-						<li>Kanji writing 2</li>
-						<li>Kanji writing 3</li>
-					</ul>
-				</section>
-
-				<section>
-					<h1>Kana writings</h1>
-					<ul class="writing-list">
-						<li>Kana writing 1</li>
-						<li>Kana writing 2</li>
-						<li>Kana writing 3</li>
-					</ul>
-				</section>
-
-				<section>
-					<h1>Meanings</h1>
-					<ul>
-						<li>Meaning 1</li>
-						<li>Meaning 2</li>
-						<li>Meaning 3</li>
-						<li>Meaning 4</li>
-						<li>Meaning 5</li>
-					</ul>
-				</section>
+					<ol>
+						<li v-for="meaning in searchResult.getResult().getMeanings()">{{ meaning }}</li>
+					</ol>
+				</section>	
 			</div>
 		</li>
 	</ul>
