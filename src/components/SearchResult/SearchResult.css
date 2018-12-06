@@ -6,7 +6,9 @@ ul {
 #search-result > li > div {
 	background-color: white;
 	padding: 1em;
-	margin: 1em 0em;
+	margin: 0em 0em 1em 0em;
+
+	border-radius: 5px;
 
 	transition: all 0.3s;
 }
@@ -21,7 +23,7 @@ ul {
 	left: -1em;
 	top: -1em;
 
-	border-radius: 0em 0em 0.5em 0em;
+	border-radius: 0.5em 0em 0.5em 0em;
 }
 
 #search-result > li > div.kanji-result:before {
@@ -32,15 +34,47 @@ ul {
 	content: 'Word';
 }
 
-#search-result > li > div.word-result > button {
-	bottom: 1.4em;
-}
-
 #search-result > li > div > span:first-child {
 	display: block;
 	font-size: 1.4em;
 	margin-bottom: 0.5em;
 }
+
+#search-result > li button {
+	display: block;
+	float: right;
+	position: relative;
+	bottom: 4em;
+	background-color: #C72657;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: white;
+	width: 4em;
+	height: 4em;
+	border-radius: 4em;
+	transition: all 0.2s;
+}
+
+#search-result > li button:hover {
+	box-shadow: -4px 3px 5px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+	transition: all 0.3s;
+}
+
+#search-result > li button:active {
+	transform: translate(-0.2em, 0.2em);
+	box-shadow: 0px 0px 0px;
+	background-color: #b61546;
+	transition: transform 0.2s, box-shadow 0.2s, background-color 0.01s, color 0.01s;
+}
+
+section:not(:last-child) {
+	margin-bottom: 1em;
+}
+
+section span {
+	display: block;
+}
+
 
 section h1 {
 	display: block;
@@ -48,8 +82,39 @@ section h1 {
 	padding: 0;
 }
 
-#search-result > li > div:hover {
-	box-shadow: -4px 3px 5px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
-	transform: translate(0.2em, -0.2em);
-	transition: all 0.3s;
+.writing-list li {
+	display: inline-block;
+	background-color: #EEE;
+	color: black;
+	padding: 0.4em;
+	border-radius: 0.5em;
+}
+
+.writing-list li:not(:last-child) {
+	margin: 0 0.5em 0 0;
+}
+
+@media screen and (min-width: 900px) {
+	#search-result {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	#search-result > li {
+		align-items: stretch;
+		display: flex;
+		flex-grow: 2;
+		padding: 0.5em;
+		
+	}
+
+	#search-result > li > div {
+		margin: 0;
+		width: 100%;
+	}
+
+	#search-result section {
+		min-width: 15em;
+	}
 }

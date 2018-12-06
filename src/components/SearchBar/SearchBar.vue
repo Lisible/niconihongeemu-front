@@ -1,12 +1,12 @@
 <template>
 	<div id="search-bar">
-		<input type="text" name="search-input">
-		<select name="search-type">
-			<option value="any">Any</option>
-			<option value="word">Word</option>
-			<option value="kanji">Kanji</option>
+		<input type="text" name="search-input" v-model="query">
+		<select v-model="type" name="search-type">
+			<option v-bind:value="SearchType.ANY">Any</option>
+			<option v-bind:value="SearchType.WORD">Word</option>
+			<option v-bind:value="SearchType.KANJI">Kanji</option>
 		</select>
-		<button id="search-button" ref="searchButton">Search</button>
+		<button id="search-button" ref="searchButton" @click="triggerSearchEvent">Search</button>
 	</div>
 </template>
 
