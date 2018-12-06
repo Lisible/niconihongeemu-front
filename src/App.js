@@ -16,8 +16,12 @@ export default {
   },
   created: function() {
     this.$on('SearchEvent', (query, type) => {
+      this.$data.searchStarted = true;
+      this.$data.searching = true;
+
       let wp = new WordProvider();
       wp.searchWord(query).then(results => {
+        this.$data.searchStarted = false;
         let searchResultList = new SearchResultList();
         
         results.forEach(r => {
@@ -35,7 +39,8 @@ export default {
   },
   data: function(){
     return {
-      searching: true
+      searching: false,
+      searchStarted: false,
     }
   }
 }

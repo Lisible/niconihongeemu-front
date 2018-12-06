@@ -47,3 +47,34 @@ header h1:hover {
   opacity: 0;
   transition: opacity 0.5s 0.8s;
 }
+
+h1.bump:before {
+  animation: bump 0.2s, 0.5s 0.2s spin linear infinite;
+}
+
+@keyframes bump {
+  0% {
+    bottom: 0em;
+  }
+  
+  50% {
+    bottom: 0.2em;
+  }
+  
+  100% {
+    bottom: 0em;
+  }
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotateZ(0deg);
+    transform-origin: 45% 50%;
+  }
+  
+  100% {
+    transform: rotateZ(360deg);
+    transform-origin: 45% 50%;
+  }
+}

@@ -27,6 +27,12 @@
 					Deck1
 				</div>
 			</li>
+			<li>
+				<button id="button-deck-add">Add</button>
+			</li>
+			<li>
+				<button id="button-deck-settings">Settings</button>
+			</li>
 		</ul>
 	</div>
 </template>

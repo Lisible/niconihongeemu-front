@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <h1>NicoNihonGeemu</h1>
+      <h1 v-bind:class="{ bump: searchStarted }">NicoNihonGeemu</h1>
     </header>
     <div id="main-wrapper">
         <search-bar></search-bar>
