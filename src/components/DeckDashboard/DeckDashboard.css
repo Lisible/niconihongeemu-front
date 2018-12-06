@@ -1,0 +1,29 @@
+#deck-dashboard h1 {
+	background-color: #C72657;
+	color: white;
+	display: inline-block;
+
+	border-radius: 0.5em;
+}
+
+#deck-dashboard ul {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+#deck-dashboard li {
+	flex-grow: 1;
+	padding: 0.5em;
+	width: 10em;
+	max-width: 10em;
+	height: 7em;
+}
+
+#deck-dashboard .deck {
+	background-color: #C72657;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 7em;
+}

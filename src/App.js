@@ -1,5 +1,6 @@
 import SearchBarComponent from './components/SearchBar/SearchBar.vue'
 import SearchResultComponent from './components/SearchResult/SearchResult.vue'
+import DeckDashboardComponent from './components/DeckDashboard/DeckDashboard.vue'
 
 import SearchResult from './model/SearchResult'
 import SearchResultList from './model/SearchResultList'
@@ -10,7 +11,8 @@ export default {
   name: 'app',
   components: {
     'SearchBar': SearchBarComponent,
-    'SearchResult': SearchResultComponent
+    'SearchResult': SearchResultComponent,
+    'DeckDashboard': DeckDashboardComponent,
   },
   created: function() {
     this.$on('SearchEvent', (query, type) => {
