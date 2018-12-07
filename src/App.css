@@ -36,18 +36,6 @@ header h1:before {
   transition: margin-left 3s, transform 1s 0.5s;
 }
 
-header h1:hover:before {
-  /*margin-left: 100%;
-  transform: rotateZ(360deg);
-  opacity: 1;
-  transition: margin-left 3s, transform 1s;*/
-}
-
-header h1:hover {
-  opacity: 0;
-  transition: opacity 0.5s 0.8s;
-}
-
 h1.bump:before {
   animation: bump 0.2s, 0.5s 0.2s spin linear infinite;
 }
@@ -70,11 +58,11 @@ h1.bump:before {
 @keyframes spin {
   0% {
     transform: rotateZ(0deg);
-    transform-origin: 45% 50%;
+    transform-origin: 40% 50%;
   }
   
   100% {
     transform: rotateZ(360deg);
-    transform-origin: 45% 50%;
+    transform-origin: 40% 50%;
   }
 }
