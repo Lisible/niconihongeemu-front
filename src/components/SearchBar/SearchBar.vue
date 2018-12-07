@@ -1,6 +1,6 @@
 <template>
 	<div id="search-bar">
-		<input type="text" name="search-input" v-model="query">
+		<input type="text" name="search-input" @keyup.enter="triggerSearchEvent" v-model="query">
 		<select v-model="type" name="search-type">
 			<option v-bind:value="SearchType.ANY">Any</option>
 			<option v-bind:value="SearchType.WORD">Word</option>

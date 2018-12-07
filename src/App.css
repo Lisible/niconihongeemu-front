@@ -37,10 +37,10 @@ header h1:before {
 }
 
 header h1:hover:before {
-  margin-left: 100%;
+  /*margin-left: 100%;
   transform: rotateZ(360deg);
   opacity: 1;
-  transition: margin-left 3s, transform 1s;
+  transition: margin-left 3s, transform 1s;*/
 }
 
 header h1:hover {
