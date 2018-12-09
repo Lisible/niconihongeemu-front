@@ -41,6 +41,13 @@
 					</ul>
 				</section>
 
+				<section v-if="searchResult.getResult().getKanaWritings().length > 0">
+					<h1>Romaji transcription</h1>
+					<ul class="writing-list">
+						<li v-for="romajiWriting in searchResult.getResult().getRomajiWritings()">{{ romajiWriting }}</li>
+					</ul>
+				</section>
+
 				<section v-if="searchResult.getResult().getMeanings().length > 0">
 					<h1>Meanings</h1>
 					<ol>
