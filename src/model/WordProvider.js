@@ -14,7 +14,7 @@ export default class WordProvider {
 			let words = []
 			
 			results.forEach(function(r){
-				words.push(new Word(r.kanjiWritings, r.kanaWritings, r.definitions));
+				words.push(new Word(r.kanjiWritings, r.kanaWritings, r.romajiWritings, r.definitions));
 			});
 
 			return words;

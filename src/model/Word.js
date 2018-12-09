@@ -1,7 +1,8 @@
 export default class Word {
-	constructor(kanjiWritings, kanaWritings, meanings) {
+	constructor(kanjiWritings, kanaWritings, romajiWritings, meanings) {
 		this.kanjiWritings = kanjiWritings;
 		this.kanaWritings = kanaWritings;
+		this.romajiWritings = romajiWritings;
 		this.meanings = meanings;
 	}
 
@@ -11,6 +12,10 @@ export default class Word {
 
 	getKanaWritings() {
 		return this.kanaWritings;
+	}
+
+	getRomajiWritings() {
+		return this.romajiWritings;
 	}
 
 	getMeanings() {
