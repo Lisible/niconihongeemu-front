@@ -1,7 +1,8 @@
 export default class Kanji {
-	constructor(literal, readings, meanings, strokeCount, jlptLevel) {
+	constructor(literal, readings, meanings, romaji, strokeCount, jlptLevel) {
 		this.literal = literal;
 		this.readings = readings;
+		this.romaji = romaji;
 		this.meanings = meanings;
 		this.strokeCount = strokeCount;
 		this.jlptLevel = jlptLevel;
@@ -13,6 +14,10 @@ export default class Kanji {
 
 	getReadings() {
 		return this.readings;
+	}
+
+	getRomaji() {
+		return this.romaji;
 	}
 
 	getMeanings() {

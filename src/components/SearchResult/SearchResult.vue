@@ -5,10 +5,18 @@
 			<div v-if="searchResult.getType() === 'kanji'" class="kanji-result">
 				<span>{{ searchResult.getResult().getLiteral() }}</span>
 				<section v-if="searchResult.getResult().getReadings().length > 0">
-					<h1>Readings</h1>
+					<h1>Kana Readings</h1>
 					<ul class="writing-list">
 						<li v-for="reading in searchResult.getResult().getReadings()">
 							{{ reading }}
+						</li>
+					</ul>
+				</section>
+				<section v-if="searchResult.getResult().getRomaji().length > 0">
+					<h1>Romaji Readings</h1>
+					<ul class="writing-list">
+						<li v-for="romaji in searchResult.getResult().getRomaji()">
+							{{ romaji }}
 						</li>
 					</ul>
 				</section>

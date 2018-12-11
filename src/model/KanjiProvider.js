@@ -14,7 +14,7 @@ export default class KanjiProvider {
 			let kanjis = []
 			
 			results.forEach(function(r){
-				kanjis.push(new Kanji(r.literal, r.readings, r.meanings, r.strokeCount, r.jlptLevel));
+				kanjis.push(new Kanji(r.literal, r.readings, r.meanings, r.romaji, r.strokeCount, r.jlptLevel));
 			});
 
 			return kanjis;
