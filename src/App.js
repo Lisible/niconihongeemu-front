@@ -5,6 +5,7 @@ import DeckDashboardComponent from './components/DeckDashboard/DeckDashboard.vue
 import SearchResult from './model/SearchResult'
 import SearchResultList from './model/SearchResultList'
 import WordProvider from './model/WordProvider'
+import KanjiProvider from './model/KanjiProvider'
 
 
 export default {
@@ -18,14 +19,28 @@ export default {
     this.$on('SearchEvent', (query, type) => {
       this.$data.searchStarted = true;
       this.$data.searching = true;
+      let searchResultList = new SearchResultList();
+
+      var searchType = document.getElementsByName('search-type');
+      console.log(searchType);
 
       let wp = new WordProvider();
       wp.searchWord(query).then(results => {
         this.$data.searchStarted = false;
-        let searchResultList = new SearchResultList();
         
         results.forEach(r => {
           searchResultList.addSearchResult(new SearchResult('word', r));
+        });
+        
+        this.refreshSearchResult(searchResultList);
+      });
+
+      let kp = new KanjiProvider();
+      kp.searchKanji(query).then(results => {
+        this.$data.searchStarted = false;
+        
+        results.forEach(r => {
+          searchResultList.addSearchResult(new SearchResult('kanji', r));
         });
         
         this.refreshSearchResult(searchResultList);
