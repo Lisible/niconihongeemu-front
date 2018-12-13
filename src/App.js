@@ -1,6 +1,8 @@
 import SearchBarComponent from './components/SearchBar/SearchBar.vue'
 import SearchResultComponent from './components/SearchResult/SearchResult.vue'
 import DeckDashboardComponent from './components/DeckDashboard/DeckDashboard.vue'
+import LoginComponent from './components/Login/Login.vue'
+import RegisterComponent from './components/Register/Register.vue'
 
 import SearchResult from './model/SearchResult'
 import SearchResultList from './model/SearchResultList'
@@ -14,11 +16,20 @@ export default {
         'SearchBar': SearchBarComponent,
         'SearchResult': SearchResultComponent,
         'DeckDashboard': DeckDashboardComponent,
+        'Login': LoginComponent,
+        'Register': RegisterComponent,
     },
     created: function() {
+        this.$on('AccountCreationRequest', () => {
+            //this.$data.perspective = 'register';
+        });
+        this.$on('ConnectionRequest', () => {
+            this.$data.perspective = 'home';
+        });
+
         this.$on('SearchEvent', (query, type) => {
             this.$data.searchStarted = true;
-            this.$data.searching = true;
+            this.$data.perspective = 'search';
             let searchResultList = new SearchResultList();
             let wp = new WordProvider();
             let kp = new KanjiProvider();
@@ -72,12 +83,15 @@ export default {
     methods: {
         refreshSearchResult: function(searchResultList) {
             this.$refs.searchResult.setSearchResultList(searchResultList);
+        },
+        changePerspective: function(perspective) {
+            this.$data.perspective = perspective;
         }
     },
     data: function() {
         return {
-            searching: false,
             searchStarted: false,
+            perspective: 'login',
         }
     }
 }

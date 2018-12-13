@@ -4,9 +4,11 @@
       <h1 v-bind:class="{ bump: searchStarted }">NicoNihonGeemu</h1>
     </header>
     <div id="main-wrapper">
-        <search-bar></search-bar>
-        <search-result v-if="searching" ref="searchResult"></search-result>
-    	<deck-dashboard v-if="!searching"></deck-dashboard>
+        <search-bar v-if="perspective == 'home' || perspective == 'search'"></search-bar>
+        <search-result v-if="perspective == 'search'" ref="searchResult"></search-result>
+        <deck-dashboard v-if="perspective == 'home'"></deck-dashboard>
+        <login v-if="perspective == 'login'"></login>
+        <register v-if="perspective == 'register'"></register>
     </div>
   </div>
 </template>
