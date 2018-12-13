@@ -28,10 +28,10 @@
 				</div>
 			</li>
 			<li>
-				<button id="button-deck-add">Add</button>
+				<button id="button-deck-add" class="fas fa-plus">Add</button>
 			</li>
 			<li>
-				<button id="button-deck-settings">Settings</button>
+				<button id="button-deck-settings" class="fas fa-cog">Settings</button>
 			</li>
 		</ul>
 	</div>

@@ -6,7 +6,7 @@ export default {
 		return {
 			login: '',
 			password: '',
-			statusMessage: ''
+			status: ''
 		}
 	},
 	methods: {
@@ -14,7 +14,7 @@ export default {
 			const response = await AuthenticationBackend.registerUser(this.login, this.password);
 			if(response.status !== 200) {
 				const content = await response.json();
-				this.statusMessage = content.message;
+				this.status = content;
 				return;
 			}
 

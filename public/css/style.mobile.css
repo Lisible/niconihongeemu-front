@@ -39,6 +39,7 @@ button {
 	margin: auto;
 	max-width: 35em;
 	box-shadow: -4px 3px 5px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+	border-radius: 0.5em;
 }
 
 .form > h2 {
@@ -46,11 +47,13 @@ button {
 	position: relative;
 	left: -1rem;
 	top: -1rem;
-	width: calc(100% + 0.5rem);
+	width: calc(100% - 0.15em);
 	background-color: #c63d69;
 	color: white;
-	padding: 0.5em;
+	padding: 0.75em;
 	margin: 0;
+
+	border-radius: 0.5rem 0.5rem 0 0;
 }
 
 .form-entry label {
@@ -101,4 +104,13 @@ button {
 	box-shadow: 0 5px 5px rgba(0,0,0,0.22);
 
 	transition: transform 0.2s,  0.2s box-shadow 0.1s;
+}
+
+.form .form-status.status-error {
+	display: inline-block;
+	background-color: #f9d2cf;
+	color: #af1d3d;
+	margin: 0.25em 0;
+	padding: 0.75em;
+	border-radius: 1em;
 }

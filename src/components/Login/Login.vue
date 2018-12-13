@@ -1,6 +1,6 @@
 <template>
 	<div id="login" class="form">
-		<h2>Login</h2>
+		<h2>Welcome !</h2>
 		<div class="form-entry">
 			<label for="login">Login</label>
 			<input type="text" name="login">

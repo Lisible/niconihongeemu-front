@@ -1,7 +1,7 @@
 <template>
 	<div id="login" class="form">
-		<h2>Register</h2>
-		<span class="form-status">{{ statusMessage }}</span>
+		<h2>Create an account</h2>
+		<span class="form-status" v-bind:class="{'status-error': status.code >= 300 }">{{ status.message }}</span>
 		<div class="form-entry">
 			<label for="login">Login</label>
 			<input type="text" name="login" v-model="login">
