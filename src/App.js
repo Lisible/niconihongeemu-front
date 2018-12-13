@@ -18,7 +18,8 @@ export default {
         'Register': RegisterComponent,
     },
     created: function() {
-        this.$on('ConnectionRequest', () => {
+        this.$on('ConnectionEvent', (access_token) => {
+            console.log(access_token);
             this.changePerspective('home');
         });
 
