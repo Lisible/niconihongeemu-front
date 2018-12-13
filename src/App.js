@@ -5,9 +5,11 @@ import LoginComponent from './components/Login/Login.vue'
 import RegisterComponent from './components/Register/Register.vue'
 
 import SearchResult from './model/SearchResult'
+import SearchType from './model/SearchType'
 import SearchResultList from './model/SearchResultList'
 import WordProvider from './model/WordProvider'
 import KanjiProvider from './model/KanjiProvider'
+import User from './model/User'
 
 
 export default {
@@ -20,9 +22,6 @@ export default {
         'Register': RegisterComponent,
     },
     created: function() {
-        this.$on('AccountCreationRequest', () => {
-            //this.$data.perspective = 'register';
-        });
         this.$on('ConnectionRequest', () => {
             this.$data.perspective = 'home';
         });
@@ -33,10 +32,9 @@ export default {
             let searchResultList = new SearchResultList();
             let wp = new WordProvider();
             let kp = new KanjiProvider();
-            let searchType = document.getElementsByName("search-type")[0].value;
+            let searchType = +document.getElementsByName("search-type")[0].value;
 
-
-            if (searchType == 1) {
+            if (searchType === SearchType.ANY || searchType === SearchType.WORD) {
                 wp.searchWord(query).then(results => {
                     this.$data.searchStarted = false;
 
@@ -46,28 +44,9 @@ export default {
 
                     this.refreshSearchResult(searchResultList);
                 });
+            }
 
-
-                kp.searchKanji(query).then(results => {
-                    this.$data.searchStarted = false;
-
-                    results.forEach(r => {
-                        searchResultList.addSearchResult(new SearchResult('kanji', r));
-                    });
-
-                    this.refreshSearchResult(searchResultList);
-                });
-            } else if (searchType == 2) {
-                wp.searchWord(query).then(results => {
-                    this.$data.searchStarted = false;
-
-                    results.forEach(r => {
-                        searchResultList.addSearchResult(new SearchResult('word', r));
-                    });
-
-                    this.refreshSearchResult(searchResultList);
-                });
-            } else if (searchType == 3) {
+            if (searchType === SearchType.ANY || searchType === SearchType.KANJI) {
                 kp.searchKanji(query).then(results => {
                     this.$data.searchStarted = false;
 

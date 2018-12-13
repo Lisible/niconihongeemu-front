@@ -32,3 +32,73 @@ button {
 	padding: 0;
 	border: none;
 }
+
+.form {
+	background-color: white;
+	padding: 1em;
+	margin: auto;
+	max-width: 35em;
+	box-shadow: -4px 3px 5px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+}
+
+.form > h2 {
+	display: block;
+	position: relative;
+	left: -1rem;
+	top: -1rem;
+	width: calc(100% + 0.5rem);
+	background-color: #c63d69;
+	color: white;
+	padding: 0.5em;
+	margin: 0;
+}
+
+.form-entry label {
+	display: block;
+	margin-top: 0.5em;
+}
+
+.form-entry input[type="text"], .form-entry input[type="password"] {
+	height: 2em;
+	width: calc(100% - 1em);
+}
+
+.form .form-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 1em 0 0 0;
+}
+
+.form button {
+	flex-grow: 1;
+	
+	min-width: 10em;
+	max-width: 25em;
+	padding: 1em;
+
+	border: 2px solid #c63d69;
+	background-color: white;
+	color: #c63d69;
+}
+
+.form button {
+	margin: 0 0.5em;
+}
+
+.form button {
+	margin-bottom: 0.5em;
+
+	transition: box-shadow 0.2s,  0.2s transform 0.1s;
+}
+
+.form button.button-red {;
+	color: white;
+	background-color: #c63d69;
+}
+
+.form button:hover {
+	transform: translateY(-0.2em);
+	box-shadow: 0 5px 5px rgba(0,0,0,0.22);
+
+	transition: transform 0.2s,  0.2s box-shadow 0.1s;
+}

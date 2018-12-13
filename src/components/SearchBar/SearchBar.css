@@ -31,8 +31,8 @@
 }
 
 #search-bar select {
-	text-align: center;
 	text-indent: -0.1em;
+	text-align-last:center;
 	padding: 0;
 
 	background-color: #fbfbfb;

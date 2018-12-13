@@ -1,5 +1,5 @@
 <template>
-	<div id="login">
+	<div id="login" class="form">
 		<h2>Login</h2>
 		<div class="form-entry">
 			<label for="login">Login</label>
@@ -9,8 +9,10 @@
 			<label for="password">Password</label>
 			<input type="password" name="password">
 		</div>
-		<button @click="$parent.changePerspective('register')">NicoNicreate account</button>
-		<button @click="triggerConnectionRequest">NicoNiconnect</button>
+		<div class="form-buttons">
+			<button @click="$parent.changePerspective('register')">NicoNicreate account</button>
+			<button class="button-red" @click="triggerConnectionRequest">NicoNiconnect</button>
+		</div>
 	</div>
 </template>
 

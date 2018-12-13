@@ -1,6 +1,6 @@
 import Kanji from '@/model/Kanji';
 
-const ENDPOINT = 'http://localhost:3000/dictionnary/kanji/';
+const ENDPOINT = 'http://localhost:3000/dictionnary/kanji/'; // TODO make configurable
 
 export default class KanjiProvider {
 	constructor(){
