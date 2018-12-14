@@ -1,17 +1,17 @@
 export default class SearchResultList {
-	constructor() {
-		this.resultList = [];
-	}
+    constructor() {
+        this.resultList = [];
+    }
 
-	addSearchResult(searchResult) {
-		this.resultList.push(searchResult);
-	}
+    addSearchResult(searchResult) {
+        this.resultList.push(searchResult);
+    }
 
-	clearSearchResult(searchResult) {
-		this.resultList = [];
-	}
+    clearSearchResult() {
+        this.resultList = [];
+    }
 
-	getSearchResults() {
-		return this.resultList;
-	}
+    getSearchResults() {
+        return this.resultList;
+    }
 }

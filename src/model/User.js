@@ -3,4 +3,4 @@ export default class User {
 		this.login = login;
 		this.password = password;
 	}
-};
+}

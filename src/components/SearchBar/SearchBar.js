@@ -6,18 +6,18 @@ import WordProvider from '@/model/WordProvider'
 import KanjiProvider from '@/model/KanjiProvider'
 
 export default {
-	name: 'search-bar',
-	data() {
-		return {
-			SearchType: SearchType,
-			query: '',
-			type: SearchType.ANY
-		}
-	},
-	methods: {
-		search: async function(event){
-			const query = this.query;
-			const type = this.type;
+    name: 'search-bar',
+    data() {
+        return {
+            SearchType: SearchType,
+            query: '',
+            type: SearchType.ANY
+        }
+    },
+    methods: {
+        search: async function(event){
+            const query = this.query;
+            const type = this.type;
 
             let searchResultList = new SearchResultList();
             let wp = new WordProvider();
@@ -26,7 +26,7 @@ export default {
 
             this.$parent.$emit('SearchStartedEvent');
             if (searchType === SearchType.ANY || searchType === SearchType.KANJI) {
-            	const results = await kp.searchKanji(query);
+                const results = await kp.searchKanji(query);
 
                 results.forEach(r => {
                         searchResultList.addSearchResult(new SearchResult('kanji', r));
@@ -34,13 +34,13 @@ export default {
             }
 
             if (searchType === SearchType.ANY || searchType === SearchType.WORD) {
-            	const results = await wp.searchWord(query);
+                const results = await wp.searchWord(query);
 
-            	results.forEach(r => {
+                results.forEach(r => {
                         searchResultList.addSearchResult(new SearchResult('word', r));
                  });
             }
             this.$parent.$emit('SearchFinishedEvent', searchResultList);
-		}
-	}
+        }
+    }
 }
