@@ -19,7 +19,7 @@ export default {
     },
     created: function() {
         this.$on('ConnectionEvent', (access_token) => {
-            this.$data.access_token = access_token;
+            this.access_token = access_token;
             this.changePerspective('home');
         });
 
@@ -45,6 +45,7 @@ export default {
         return {
             searchStarted: false,
             perspective: 'login',
+            access_token: null
         }
     }
 }

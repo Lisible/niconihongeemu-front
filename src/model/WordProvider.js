@@ -7,8 +7,8 @@ export default class WordProvider {
 		this.endpoint = ENDPOINT;
 	}
 
-	searchWord(query) {
-		return fetch(this.endpoint + query)
+	searchWord(query, accessToken) {
+		return fetch(this.endpoint + query + "?access_token=" + accessToken)
 		.then(results => results.json())
 		.then(results => {
 			let words = []

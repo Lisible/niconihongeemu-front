@@ -26,7 +26,8 @@ export default {
 
             this.$parent.$emit('SearchStartedEvent');
             if (searchType === SearchType.ANY || searchType === SearchType.KANJI) {
-                const results = await kp.searchKanji(query);
+                console.log(this.$parent.access_token);
+                const results = await kp.searchKanji(query, this.$parent.$data.access_token);
 
                 results.forEach(r => {
                         searchResultList.addSearchResult(new SearchResult('kanji', r));
@@ -34,7 +35,7 @@ export default {
             }
 
             if (searchType === SearchType.ANY || searchType === SearchType.WORD) {
-                const results = await wp.searchWord(query);
+                const results = await wp.searchWord(query, this.$parent.access_token);
 
                 results.forEach(r => {
                         searchResultList.addSearchResult(new SearchResult('word', r));

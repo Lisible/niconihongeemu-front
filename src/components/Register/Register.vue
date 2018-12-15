@@ -8,7 +8,7 @@
 		</div>
 		<div class="form-entry">
 			<label for="password">Password</label>
-			<input type="password" name="password" v-model="password">
+			<input type="password" name="password" v-model="password" @keyup.enter="onConfirmButtonClicked">
 		</div>
 		<div class="form-buttons">
 			<button @click="$parent.changePerspective('login')">NicoNicancel</button>

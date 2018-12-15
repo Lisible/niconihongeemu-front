@@ -7,8 +7,8 @@ export default class KanjiProvider {
 		this.endpoint = ENDPOINT;
 	}
 
-	searchKanji(query) {
-		return fetch(this.endpoint + query)
+	searchKanji(query, accessToken) {
+		return fetch(this.endpoint + query + "?access_token=" + accessToken)
 		.then(results => results.json())
 		.then(results => {
 			let kanjis = []

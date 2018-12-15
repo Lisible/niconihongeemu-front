@@ -28,7 +28,7 @@ export default {
 				return;
 			}
 
-			this.$parent.$emit('ConnectionEvent', content.access_token);
+			this.$parent.$emit('ConnectionEvent', content.accessToken);
 		}
 	}
 }
