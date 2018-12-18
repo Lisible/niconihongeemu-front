@@ -1,0 +1,24 @@
+@media screen and (min-width: 600px) {
+	header nav {
+		display: inline-block;
+		position: relative;
+		float: right;
+		padding: 0;
+
+		text-align: center;
+
+		width: initial;
+	}
+
+	header nav > button {
+		width: 3.5em;
+	}
+
+	header nav > button:not(:last-child) {
+		margin-right: 0.5em;
+	}
+
+	header nav > button:before {
+		margin-right: 
+	}
+}
