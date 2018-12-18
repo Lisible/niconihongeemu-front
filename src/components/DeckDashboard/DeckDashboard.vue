@@ -28,7 +28,7 @@
 				</div>
 			</li>
 			<li>
-				<button id="button-deck-add" class="fas fa-plus">Add</button>
+				<button id="button-deck-add" class="fas fa-plus" @click="showDeckCreationPopup()">Add</button>
 			</li>
 			<li>
 				<button id="button-deck-settings" class="fas fa-cog">Settings</button>

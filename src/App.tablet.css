@@ -1,4 +1,9 @@
 @media screen and (min-width: 600px) {
+	#main-wrapper {
+    	margin: 0em 2em 0em 2em;
+    	padding: 5em 0 4em 0;
+	}
+
 	header nav {
 		display: inline-block;
 		position: relative;
@@ -19,6 +24,6 @@
 	}
 
 	header nav > button:before {
-		margin-right: 
+		top: 0;
 	}
 }

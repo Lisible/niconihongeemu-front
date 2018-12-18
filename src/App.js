@@ -39,13 +39,36 @@ export default {
         },
         changePerspective: function(perspective) {
             this.$data.perspective = perspective;
+        },
+        showPopup: function(componentClass) {
+            let componentInstance = new componentClass();
+            componentInstance.$parent = this;
+            this.$data.popup = componentInstance;
+            componentInstance.$mount();
+            this.$refs.popup.innerHTML = '';
+            this.$refs.popup.appendChild(componentInstance.$el);
+
+            setTimeout(() => {
+                this.$data.popupShown = true;
+            }, 10);
+        },
+        closePopup: function() {
+            this.$data.popupShown = false;
+
+            setTimeout(() => {
+                this.$data.popup = null;
+                this.$refs.popup.innerHTML = '';
+            }, 200);
+            console.log("not done");
         }
     },
     data: function() {
         return {
             searchStarted: false,
             perspective: 'login',
-            access_token: null
+            access_token: null,
+            popup: null,
+            popupShown: false
         }
     }
 }

@@ -3,18 +3,19 @@
     <header>
       <h1 v-bind:class="{ bump: searchStarted }">NicoNihonGeemu</h1>
 
-      <nav>
-        <button class="fas fa-home">Home</button>
-        <button class="fas fa-search">Search</button>
-        <button  class="fas fa-atlas">Deck</button>
+      <nav v-if="perspective !== 'login' && perspective !== 'register'">
+        <button class="fas fa-home" v-bind:class="{'current-nav': perspective === 'home'}" @click="changePerspective('home')">Home</button>
+        <button class="fas fa-search" v-bind:class="{'current-nav': perspective === 'search'}" @click="changePerspective('search')">Search</button>
+        <button  class="fas fa-atlas" v-bind:class="{'current-nav': perspective === 'deck'}" @click="changePerspective('deck')">Deck</button>
       </nav>
     </header>
-    <div id="main-wrapper">
+    <div id="main-wrapper" ref="mainWrapper">
         <search-bar v-if="perspective == 'home' || perspective == 'search'"></search-bar>
         <search-result v-if="perspective == 'search'" ref="searchResult"></search-result>
         <deck-dashboard v-if="perspective == 'home'"></deck-dashboard>
         <login v-if="perspective == 'login'"></login>
         <register v-if="perspective == 'register'"></register>
+        <div id="popup" ref="popup" v-bind:style="{'display': popup !== null ? 'block' : 'none'}" v-bind:class="{'shown': popupShown}"></div>
     </div>
   </div>
 </template>
