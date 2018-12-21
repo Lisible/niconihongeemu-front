@@ -16,6 +16,7 @@
         <login v-if="perspective == 'login'"></login>
         <register v-if="perspective == 'register'"></register>
         <div id="popup" ref="popup" v-bind:style="{'display': popup !== null ? 'block' : 'none'}" v-bind:class="{'shown': popupShown}"></div>
+        <deck-details v-if="perspective == 'deck-details'"></deck-details>
     </div>
   </div>
 </template>

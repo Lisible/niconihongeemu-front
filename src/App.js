@@ -3,6 +3,7 @@ import SearchResultComponent from './components/SearchResult/SearchResult.vue'
 import DeckDashboardComponent from './components/DeckDashboard/DeckDashboard.vue'
 import LoginComponent from './components/Login/Login.vue'
 import RegisterComponent from './components/Register/Register.vue'
+import DeckDetailsComponent from './components/DeckDetails/DeckDetails.vue'
 
 
 import User from './model/User'
@@ -16,6 +17,7 @@ export default {
         'DeckDashboard': DeckDashboardComponent,
         'Login': LoginComponent,
         'Register': RegisterComponent,
+        'DeckDetails': DeckDetailsComponent,
     },
     created: function() {
         this.$on('ConnectionEvent', (access_token) => {

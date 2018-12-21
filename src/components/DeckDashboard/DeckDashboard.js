@@ -12,5 +12,8 @@ export default {
             const ComponentClass = Vue.extend(DeckCreationComponent);
             this.$parent.showPopup(ComponentClass);
         },
+        showDeckDetails: function() {
+        	this.$parent.changePerspective('deck-details');
+        }
 	}
 }

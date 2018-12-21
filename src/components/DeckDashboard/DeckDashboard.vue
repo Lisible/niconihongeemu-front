@@ -3,7 +3,7 @@
 		<h1>Your decks</h1>
 		<ul>
 			<li>
-				<div class="deck">
+				<div class="deck" @click="showDeckDetails()">
 					Deck1
 				</div>
 			</li>
