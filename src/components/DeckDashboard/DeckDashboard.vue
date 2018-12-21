@@ -2,29 +2,10 @@
 	<div id="deck-dashboard">
 		<h1>Your decks</h1>
 		<ul>
-			<li>
-				<div class="deck" @click="showDeckDetails()">
-					Deck1
-				</div>
-			</li>
-			<li>
+			<li v-for="deck in decks" @click="showDeckDetails()">
 				<div class="deck">
-					Deck1
-				</div>
-			</li>
-			<li>
-				<div class="deck">
-					Deck1
-				</div>
-			</li>
-			<li>
-				<div class="deck">
-					Deck1
-				</div>
-			</li>
-			<li>
-				<div class="deck">
-					Deck1
+					<span class="deck-name">{{ deck.getName() }}
+					</span>
 				</div>
 			</li>
 			<li>

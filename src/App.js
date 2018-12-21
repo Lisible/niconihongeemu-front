@@ -4,6 +4,7 @@ import DeckDashboardComponent from './components/DeckDashboard/DeckDashboard.vue
 import LoginComponent from './components/Login/Login.vue'
 import RegisterComponent from './components/Register/Register.vue'
 import DeckDetailsComponent from './components/DeckDetails/DeckDetails.vue'
+import AccessToken from './model/AccessToken';
 
 
 import User from './model/User'
@@ -21,7 +22,7 @@ export default {
     },
     created: function() {
         this.$on('ConnectionEvent', (access_token) => {
-            this.access_token = access_token;
+            AccessToken.token = access_token;
             this.changePerspective('home');
         });
 
@@ -34,6 +35,9 @@ export default {
             this.$data.searchStarted = false;
             this.refreshSearchResult(searchResults)
         });
+
+        this.$eventBus.$on('ShowPopup', this.showPopup);
+        this.$eventBus.$on('ClosePopup', this.closePopup);
     },
     methods: {
         refreshSearchResult: function(searchResultList) {
@@ -61,14 +65,12 @@ export default {
                 this.$data.popup = null;
                 this.$refs.popup.innerHTML = '';
             }, 200);
-            console.log("not done");
         }
     },
     data: function() {
         return {
             searchStarted: false,
             perspective: 'login',
-            access_token: null,
             popup: null,
             popupShown: false
         }

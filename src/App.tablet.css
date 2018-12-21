@@ -4,6 +4,10 @@
     	padding: 5em 0 4em 0;
 	}
 
+	#main-wrapper > *:last-child {
+ 		margin-bottom: 5em;
+	}
+
 	header nav {
 		display: inline-block;
 		position: relative;

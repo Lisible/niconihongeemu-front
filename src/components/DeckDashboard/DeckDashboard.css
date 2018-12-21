@@ -17,7 +17,11 @@
 	padding: 0.5em;
 	width: 10em;
 	max-width: 10em;
-	height: 7em;
+	min-height: 7em;
+
+	line-height: 1em;
+	overflow: hidden;
+
 }
 
 #deck-dashboard li div, #deck-dashboard li button {
@@ -38,8 +42,15 @@
 	color: white;
 	text-align: center;
 	vertical-align: middle;
-	line-height: 7em;
+	height: 100%;
+	line-height: 1em;
 	user-select: none;
+}
+
+.deck .deck-name {
+	display: block;
+	height: 100%;
+	padding: 2em;
 }
 
 #deck-dashboard button {
