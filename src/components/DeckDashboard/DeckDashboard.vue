@@ -4,7 +4,8 @@
 		<ul>
 			<li v-for="deck in decks">
 				<div class="deck">
-					{{ deck.name }}
+					<span class="deck-name">{{ deck.getName() }}
+					</span>
 				</div>
 			</li>
 			<li>

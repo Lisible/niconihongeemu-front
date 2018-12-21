@@ -33,6 +33,9 @@ export default {
             this.$data.searchStarted = false;
             this.refreshSearchResult(searchResults)
         });
+
+        this.$eventBus.$on('ShowPopup', this.showPopup);
+        this.$eventBus.$on('ClosePopup', this.closePopup);
     },
     methods: {
         refreshSearchResult: function(searchResultList) {
@@ -60,7 +63,6 @@ export default {
                 this.$data.popup = null;
                 this.$refs.popup.innerHTML = '';
             }, 200);
-            console.log("not done");
         }
     },
     data: function() {

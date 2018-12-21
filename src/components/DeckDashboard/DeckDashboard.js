@@ -12,14 +12,25 @@ export default {
 			decks: []
 		}
 	},
-    created: async function() {
-    	const decks = await DeckAPI.getUserDecks(AccessToken.token);
-    	this.$data.decks = decks;
-    },
+	created: async function() {
+		this.reloadDecks();
+
+		this.$eventBus.$on("DeckCreated", () => {
+			this.reloadDecks();
+		});
+	},
 	methods: {
-        showDeckCreationPopup: function() {
-            const ComponentClass = Vue.extend(DeckCreationComponent);
-            this.$parent.showPopup(ComponentClass);
-        },
+		showDeckCreationPopup: function() {
+			const ComponentClass = Vue.extend(DeckCreationComponent);
+			this.$eventBus.$emit("ShowPopup", ComponentClass);
+		},
+
+		reloadDecks: function() {
+			setTimeout(async () => {
+				console.log("reload decks");
+				const decks = await DeckAPI.getUserDecks(AccessToken.token);
+				this.$data.decks = decks;
+			}, 100);
+		},
 	}
 }

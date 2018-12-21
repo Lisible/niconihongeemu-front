@@ -13,9 +13,9 @@ export default {
 			this.$parent.closePopup();
 		},
 		createDeck: async function() {
-			DeckAPI.createDeck(this.$data.deckName, AccessToken.token)
-			console.log("createDeck: " + this.$data.deckName);
-			
+			DeckAPI.createDeck(this.$data.deckName, AccessToken.token);
+			this.$eventBus.$emit("DeckCreated");
+            this.$eventBus.$emit("ClosePopup");
 		}
 	}
 }
