@@ -1,6 +1,6 @@
 const END_POINT = "http://localhost:3000/authentication";
 
-export default class Authentication {
+export default class AuthenticationAPI {
 	static async registerUser(login, password) {
 		return await fetch(END_POINT + "/user", {
 			method: 'POST',

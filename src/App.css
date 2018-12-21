@@ -15,6 +15,10 @@ body, html {
   height: calc(100% - 9em);
 }
 
+#main-wrapper > *:last-child {
+  margin-bottom: 5em;
+}
+
 header {
   height: 3em;
   line-height: 3em;
@@ -113,7 +117,7 @@ h1.bump:before {
 }
 
 #popup {
-  position: absolute;
+  position: fixed;
   z-index: 2000;
   top: 0;
   left: 0;
@@ -123,14 +127,15 @@ h1.bump:before {
 
 #popup > div {
   max-height: 50%;
-  width: 50%;
+  min-width: 50%;
+  max-width: 50%;
   margin-left: -100%;
   margin-top: 10em;
   transition: 0.5s margin-left;
 }
 
 #popup.shown > div {
-  margin-left: 25%;
+  margin-left: calc(25%);
   transition: 0.5s margin-left;
 }
 

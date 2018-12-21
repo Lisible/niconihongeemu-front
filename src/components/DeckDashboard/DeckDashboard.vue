@@ -2,29 +2,9 @@
 	<div id="deck-dashboard">
 		<h1>Your decks</h1>
 		<ul>
-			<li>
+			<li v-for="deck in decks">
 				<div class="deck">
-					Deck1
-				</div>
-			</li>
-			<li>
-				<div class="deck">
-					Deck1
-				</div>
-			</li>
-			<li>
-				<div class="deck">
-					Deck1
-				</div>
-			</li>
-			<li>
-				<div class="deck">
-					Deck1
-				</div>
-			</li>
-			<li>
-				<div class="deck">
-					Deck1
+					{{ deck.name }}
 				</div>
 			</li>
 			<li>

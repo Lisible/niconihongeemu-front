@@ -63,7 +63,7 @@ button {
 
 .form-entry input[type="text"], .form-entry input[type="password"] {
 	height: 2em;
-	width: calc(100% - 1em);
+	width: calc(100% - 5em);
 }
 
 .form .form-buttons {

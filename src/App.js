@@ -3,6 +3,7 @@ import SearchResultComponent from './components/SearchResult/SearchResult.vue'
 import DeckDashboardComponent from './components/DeckDashboard/DeckDashboard.vue'
 import LoginComponent from './components/Login/Login.vue'
 import RegisterComponent from './components/Register/Register.vue'
+import AccessToken from './model/AccessToken';
 
 
 import User from './model/User'
@@ -19,7 +20,7 @@ export default {
     },
     created: function() {
         this.$on('ConnectionEvent', (access_token) => {
-            this.access_token = access_token;
+            AccessToken.token = access_token;
             this.changePerspective('home');
         });
 
@@ -66,7 +67,6 @@ export default {
         return {
             searchStarted: false,
             perspective: 'login',
-            access_token: null,
             popup: null,
             popupShown: false
         }

@@ -10,12 +10,12 @@
       </nav>
     </header>
     <div id="main-wrapper" ref="mainWrapper">
+        <div id="popup" ref="popup" v-bind:style="{'display': popup !== null ? 'block' : 'none'}" v-bind:class="{'shown': popupShown}"></div>
         <search-bar v-if="perspective == 'home' || perspective == 'search'"></search-bar>
         <search-result v-if="perspective == 'search'" ref="searchResult"></search-result>
         <deck-dashboard v-if="perspective == 'home'"></deck-dashboard>
         <login v-if="perspective == 'login'"></login>
         <register v-if="perspective == 'register'"></register>
-        <div id="popup" ref="popup" v-bind:style="{'display': popup !== null ? 'block' : 'none'}" v-bind:class="{'shown': popupShown}"></div>
     </div>
   </div>
 </template>

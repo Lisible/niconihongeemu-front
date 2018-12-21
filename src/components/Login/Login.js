@@ -1,4 +1,4 @@
-import Authentication from '@/model/Authentication'
+import AuthenticationAPI from '@/model/api/AuthenticationAPI'
 
 export default {
 	name: 'login',
@@ -11,7 +11,7 @@ export default {
 	},
 	methods: {
 		connect: async function(event){
-			const response = await Authentication.authenticate(this.login, this.password);
+			const response = await AuthenticationAPI.authenticate(this.login, this.password);
 			const content = await response.json();
 
 			if(this.$data.login === '') {

@@ -1,4 +1,4 @@
-import Authentication from '@/model/Authentication'
+import AuthenticationAPI from '@/model/api/AuthenticationAPI'
 
 export default {
 	name: 'register',
@@ -11,7 +11,7 @@ export default {
 	},
 	methods: {
 		onConfirmButtonClicked: async function(event){
-			const response = await Authentication.registerUser(this.login, this.password);
+			const response = await AuthenticationAPI.registerUser(this.login, this.password);
 			if(response.status !== 200) {
 				const content = await response.json();
 				this.status = content;
