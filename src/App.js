@@ -4,10 +4,6 @@ import DeckDashboardComponent from './components/DeckDashboard/DeckDashboard.vue
 import LoginComponent from './components/Login/Login.vue'
 import RegisterComponent from './components/Register/Register.vue'
 import DeckDetailsComponent from './components/DeckDetails/DeckDetails.vue'
-import AccessToken from './model/AccessToken';
-
-
-import User from './model/User'
 
 
 export default {
@@ -21,17 +17,16 @@ export default {
         'DeckDetails': DeckDetailsComponent,
     },
     created: function() {
-        this.$on('ConnectionEvent', (access_token) => {
-            AccessToken.token = access_token;
-            this.changePerspective('home');
+        this.$eventBus.$on('ChangePerspective', (perspectiveName) => {
+           this.changePerspective(perspectiveName);
         });
 
-        this.$on('SearchStartedEvent', () => {
+        this.$eventBus.$on('SearchStartedEvent', () => {
             this.changePerspective('search');
             this.$data.searchStarted = true;
         });
 
-        this.$on('SearchFinishedEvent', (searchResults) => {
+        this.$eventBus.$on('SearchFinishedEvent', (searchResults) => {
             this.$data.searchStarted = false;
             this.refreshSearchResult(searchResults)
         });

@@ -10,15 +10,14 @@ export default {
 		}
 	},
 	methods: {
-		onConfirmButtonClicked: async function(event){
+		onConfirmButtonClicked: async function(){
 			const response = await AuthenticationAPI.registerUser(this.login, this.password);
 			if(response.status !== 200) {
-				const content = await response.json();
-				this.status = content;
+				this.status = await response.json();
 				return;
 			}
 
-			this.$parent.changePerspective('login')
+			this.$eventBus.$emit('ChangePerspective', 'login');
 		}
 	}
 };

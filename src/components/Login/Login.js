@@ -1,4 +1,5 @@
 import AuthenticationAPI from '@/model/api/AuthenticationAPI'
+import AccessToken from "../../model/AccessToken";
 
 export default {
 	name: 'login',
@@ -10,7 +11,7 @@ export default {
 		}
 	},
 	methods: {
-		connect: async function(event){
+		connect: async function(){
 			const response = await AuthenticationAPI.authenticate(this.login, this.password);
 			const content = await response.json();
 
@@ -27,8 +28,10 @@ export default {
 				this.status = content;
 				return;
 			}
+			AccessToken.token = content.accessToken;
 
-			this.$parent.$emit('ConnectionEvent', content.accessToken);
+
+			this.$eventBus.$emit('ChangePerspective', 'home');
 		}
 	}
 }

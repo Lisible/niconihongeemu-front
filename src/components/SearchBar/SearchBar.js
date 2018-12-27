@@ -16,14 +16,13 @@ export default {
         }
     },
     methods: {
-        search: async function(event){
+        search: async function(){
             const query = this.query;
-            const type = this.type;
 
             let searchResultList = new SearchResultList();
             let searchType = +document.getElementsByName("search-type")[0].value;
 
-            this.$parent.$emit('SearchStartedEvent');
+            this.$eventBus.$emit('SearchStartedEvent');
             if (searchType === SearchType.ANY || searchType === SearchType.KANJI) {
                 const results = await KanjiAPI.searchKanji(query, AccessToken.token);
 
@@ -39,7 +38,7 @@ export default {
                         searchResultList.addSearchResult(new SearchResult('word', r));
                  });
             }
-            this.$parent.$emit('SearchFinishedEvent', searchResultList);
+            this.$eventBus.$emit('SearchFinishedEvent', searchResultList);
         }
     }
 }
