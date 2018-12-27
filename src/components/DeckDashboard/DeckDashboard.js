@@ -21,7 +21,7 @@ export default {
     },
     methods: {
         showDeckDetails: function() {
-            this.$parent.changePerspective('deck-details');
+            this.$eventBus.$emit('ChangePerspective', 'deck-details');
         },
         showDeckCreationPopup: function() {
             const ComponentClass = Vue.extend(DeckCreationComponent);

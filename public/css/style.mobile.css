@@ -84,6 +84,12 @@ button {
 	color: #c63d69;
 }
 
+.form button:disabled {
+	border: none;
+	background-color: #cbcbcb;
+	color: white;
+}
+
 .form button {
 	margin: 0 0.5em;
 }
@@ -91,7 +97,7 @@ button {
 .form button {
 	margin-bottom: 0.5em;
 
-	transition: box-shadow 0.2s,  0.2s transform 0.1s;
+	transition: box-shadow 0.2s,  transform 0.2s  0.1s;
 }
 
 .form button.button-red {;
@@ -99,11 +105,11 @@ button {
 	background-color: #c63d69;
 }
 
-.form button:hover {
+.form button:not(:disabled):hover {
 	transform: translateY(-0.2em);
 	box-shadow: 0 5px 5px rgba(0,0,0,0.22);
 
-	transition: transform 0.2s,  0.2s box-shadow 0.1s;
+	transition: transform 0.2s,  box-shadow 0.2s  0.1s;
 }
 
 .form .form-status.status-error {
