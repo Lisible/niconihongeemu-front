@@ -12,10 +12,16 @@ export default {
         /**
          * Deletes the deck and redirects to the deck dashboard
          */
-		deleteDeck: async function() {
-			await DeckAPI.deleteDeck(AccessToken.token, this.$data.currentDeck.getId());
-			this.$eventBus.$emit('ChangePerspective', 'deck-dashboard');
-		}
+        deleteDeck: async function() {
+            await DeckAPI.deleteDeck(AccessToken.token, this.$data.currentDeck.getId());
+            this.$eventBus.$emit('ChangePerspective', 'deck-dashboard');
+        },
+        /**
+         * Redirects to the DeckCards view
+         */
+        showDeckCards: async function() {
+            this.$eventBus.$emit('ChangePerspective', 'deck-cards');
+        }
 	},
 	data: function() {
 		return {
