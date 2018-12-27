@@ -17,6 +17,7 @@
         <login v-if="perspective === 'login'"></login>
         <register v-if="perspective === 'register'"></register>
         <deck-details v-if="perspective === 'deck-details'"></deck-details>
+        <deck-recent v-if="perspective === 'home'"></deck-recent>
     </div>
   </div>
 </template>
