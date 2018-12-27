@@ -6,7 +6,7 @@
       <nav v-if="perspective !== 'login' && perspective !== 'register'">
         <button class="fas fa-home" v-bind:class="{'current-nav': perspective === 'home'}" @click="changePerspective('home')">Home</button>
         <button class="fas fa-search" v-bind:class="{'current-nav': perspective === 'search'}" @click="changePerspective('search')">Search</button>
-        <button  class="fas fa-atlas" v-bind:class="{'current-nav': perspective === 'deck'}" @click="changePerspective('deck-dashboard')">Deck</button>
+        <button  class="fas fa-atlas" v-bind:class="{'current-nav': perspective === 'deck-dashboard'}" @click="changePerspective('deck-dashboard')">Deck</button>
       </nav>
     </header>
     <div id="main-wrapper" ref="mainWrapper">
@@ -16,7 +16,7 @@
         <deck-dashboard v-if="perspective === 'deck-dashboard'"></deck-dashboard>
         <login v-if="perspective === 'login'"></login>
         <register v-if="perspective === 'register'"></register>
-        <deck-details v-if="perspective === 'deck-details'"></deck-details>
+        <deck-details v-if="perspective === 'deck-details'" v-bind="{shownDeck: shownDeck}"></deck-details>
         <deck-recent v-if="perspective === 'home'"></deck-recent>
     </div>
   </div>

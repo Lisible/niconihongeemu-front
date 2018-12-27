@@ -14,11 +14,29 @@ export default class DeckAPI {
 		});
 	}
 
+	static async getUserDeck(accessToken, deckId) {
+		const response = await fetch(END_POINT + "/" + deckId + "?access_token=" + accessToken);
+		const deckData = await response.json();
+		const deck = new Deck(deckData.id, deckData.name, deckData.cardList);
+
+		return deck;
+	}
+
 	static async getUserDecks(accessToken) {
-		const response = await fetch(END_POINT + "?access_token=" + accessToken); 
+		const response = await fetch(END_POINT + "?access_token=" + accessToken);
 		const decksData = await response.json();
-		const decks = decksData.map((deckData) => new Deck(deckData.name, deckData.cardList));
+		const decks = decksData.map((deckData) => new Deck(deckData.id, deckData.name, deckData.cardList));
 
 		return decks;
+	}
+
+	static async deleteDeck(accessToken, deckId) {
+		return await fetch(END_POINT + "/" + deckId + "?access_token=" + accessToken, {
+			method: 'DELETE',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+			}
+		});
 	}
 }

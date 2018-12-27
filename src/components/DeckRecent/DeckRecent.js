@@ -6,7 +6,7 @@ import DeckAPI from '@/model/api/DeckAPI'
 
 
 export default {
-    name: 'deck-dashboard',
+    name: 'deck-recent',
     data() {
         return {
             decks: []
@@ -14,18 +14,10 @@ export default {
     },
     created: async function() {
         this.reloadDecks();
-
-        this.$eventBus.$on("DeckCreated", () => {
-            this.reloadDecks();
-        });
     },
     methods: {
-        showDeckDetails: function(id) {
-            this.$eventBus.$emit('ShowDeckDetails', id);
-        },
-        showDeckCreationPopup: function() {
-            const ComponentClass = Vue.extend(DeckCreationComponent);
-            this.$eventBus.$emit("ShowPopup", ComponentClass);
+        showDeckDetails: function() {
+            this.$eventBus.$emit('ChangePerspective', 'deck-details');
         },
         reloadDecks: function() {
             setTimeout(async () => {
