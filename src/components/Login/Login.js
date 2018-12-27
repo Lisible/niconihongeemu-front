@@ -11,6 +11,9 @@ export default {
 		}
 	},
 	methods: {
+		/**
+		 * Connects the user, if the connection succeeded, redirects him to the home view
+		 */
 		connect: async function(){
 			const response = await AuthenticationAPI.authenticate(this.login, this.password);
 			const content = await response.json();
@@ -28,9 +31,8 @@ export default {
 				this.status = content;
 				return;
 			}
+
 			AccessToken.token = content.accessToken;
-
-
 			this.$eventBus.$emit('ChangePerspective', 'home');
 		}
 	}

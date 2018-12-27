@@ -20,13 +20,23 @@ export default {
         });
     },
     methods: {
+        /**
+         * Redirects on the DeckDetails view for the clicked deck
+         * @param id The id of the clicked deck
+         */
         showDeckDetails: function(id) {
             this.$eventBus.$emit('ShowDeckDetails', id);
         },
+        /**
+         * Displays the dekc creation popup
+         */
         showDeckCreationPopup: function() {
             const ComponentClass = Vue.extend(DeckCreationComponent);
             this.$eventBus.$emit("ShowPopup", ComponentClass);
         },
+        /**
+         * Reloads the decks from the database
+         */
         reloadDecks: function() {
             setTimeout(async () => {
                 this.$data.decks = await DeckAPI.getUserDecks(AccessToken.token);

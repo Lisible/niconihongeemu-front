@@ -10,7 +10,10 @@ export default {
 		}
 	},
 	methods: {
-		onConfirmButtonClicked: async function(){
+		/**
+		 * Registers the user
+		 */
+		register: async function(){
 			const response = await AuthenticationAPI.registerUser(this.login, this.password);
 			if(response.status !== 200) {
 				this.status = await response.json();
