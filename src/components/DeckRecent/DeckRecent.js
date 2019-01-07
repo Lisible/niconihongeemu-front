@@ -1,6 +1,3 @@
-import Vue from 'vue'
-import DeckCreationComponent from '@/components/DeckCreation/DeckCreation.vue'
-
 import AccessToken from '@/model/AccessToken'
 import DeckAPI from '@/model/api/DeckAPI'
 

@@ -2,54 +2,16 @@
     <div id="deck-cards">
         <h1>Deck cards</h1>
         <ul>
-            <li>
+            <li v-for="(card, key) in cards" :key="key" >
+                <button class="button-delete-card fas fa-trash-alt" @click="deleteCard(key)">Delete</button>
                 <div class="card-front">
-                    <p>Front</p>
+                    <textarea wrap="hard" v-model="card.front"></textarea>
                 </div>
                 <div class="card-back">
-                    <p>Back</p>
+                    <textarea wrap="hard" v-model="card.back"></textarea>
                 </div>
             </li>
-            <li>
-                <div class="card-front">
-                    <p>Front</p>
-                </div>
-                <div class="card-back">
-                    <p>Back</p>
-                </div>
-            </li>
-            <li>
-                <div class="card-front">
-                    <p>Front</p>
-                </div>
-                <div class="card-back">
-                    <p>Back</p>
-                </div>
-            </li>
-            <li>
-                <div class="card-front">
-                    <p>Front</p>
-                </div>
-                <div class="card-back">
-                    <p>Back</p>
-                </div>
-            </li>
-            <li>
-                <div class="card-front">
-                    <p>Front</p>
-                </div>
-                <div class="card-back">
-                    <p>Back</p>
-                </div>
-            </li>
-            <li>
-                <div class="card-front">
-                    <p>Front</p>
-                </div>
-                <div class="card-back">
-                    <p>Back</p>
-                </div>
-            </li>
+            <li><button id="button-add-card" @click="addCard()">Add a card</button></li>
         </ul>
     </div>
 </template>

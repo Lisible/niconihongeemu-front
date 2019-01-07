@@ -1,5 +1,6 @@
-#deck-cards {
-    height: 90%
+#deck-cards p {
+    margin: 0;
+    padding: 0;
 }
 
 #deck-cards h1 {
@@ -12,49 +13,109 @@
 
 #deck-cards ul {
     display: block;
-    white-space: nowrap;
-    overflow-x: scroll;
-
-    width: 100%;
-    height: 60%;
+    text-align: center;
 }
 
 #deck-cards li {
     display: inline-block;
+    min-width: 13em;
+    height: 17em;
+    margin: 1em;
+}
+
+#deck-cards li > button#button-add-card {
+    display: block;
+    width: 100%;
     height: 100%;
-    margin-right: 2.5em;
-}
 
-#deck-cards li div {
-    display: inline-block;
-
-    width: 10em;
-    height: calc(100% - 1em);
-    text-align: center;
-}
-
-#deck-cards li div:first-child {
     background-color: #C72657;
+    color: white;
+    box-shadow: -4px 3px 5px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+    border-radius: 1em;
+}
+
+#deck-cards li > button.button-delete-card {
+    display: block;
+    position: relative;
+
+    height: 1em;
+    top: 1.4em;
+    left: 0.4em;
+    width: 1em;
+    z-index: 100;
+
+    background-color: transparent;
+    color: transparent;
+}
+
+#deck-cards li > button.button-delete-card:before {
+    position: relative;
     color: white;
 }
 
-#deck-cards li div:last-child {
-    background-color: white;
+
+#deck-cards li > div {
+    display: block;
+    height: calc(50% - 2em);
+    padding: 1em;
+
     position: relative;
-    left: -10em;
-    transform: scale(1.1, 1.1) rotateY(180deg);
-    opacity: 0;
+    top: 0;
+    left: 0;
+
+    background-color: #C72657;
+    color: white;
+
+    text-align: left;
+
+    box-shadow: -4px 3px 5px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
 }
 
-#deck-cards li:hover div:first-child {
-    transform: scale(1.1, 1.1) rotateY(180deg);
-    opacity: 0;
+#deck-cards li > div textarea {
+    border: none;
+    overflow: auto;
+    outline: none;
+    resize: none;
 
-    transition: transform 0.5s, opacity 0.25s 0.25s;
+    background-color: transparent;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 1.2em;
+
+    width: 100%;
+    height: 100%;
 }
 
-#deck-cards li:hover div:last-child {
-    transform: scale(1.1, 1.1) rotateY(180deg);
-    opacity: 1;
-    transition: transform 0.5s, opacity 0.25s 025s;
+#deck-cards li > div.card-front textarea {
+    color: white;
+}
+
+#deck-cards li > div.card-back textarea {
+     color: #C72657;
+}
+
+#deck-cards li > div.card-front {
+    border-radius: 1em 1em 0 0;
+}
+
+#deck-cards li > div.card-back {
+    color: #C72657;
+    background-color: white;
+    border-radius: 0 0 1em 1em;
+}
+
+@media screen and (min-width: 900px) {
+    #deck-cards ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #deck-cards li {
+        align-items: stretch;
+        flex-grow: 2;
+        padding: 0.5em;
+
+        max-width: 10em;
+    }
 }
