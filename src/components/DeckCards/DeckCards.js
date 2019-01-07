@@ -34,6 +34,9 @@ export default {
         },
         deleteCard: function(key) {
             this.cards.splice(key, 1);
+        },
+        saveDeck: function() {
+            this.$eventBus.$emit("ChangePerspective", "deck-dashboard");
         }
     }
 }

@@ -12,6 +12,7 @@
                 </div>
             </li>
             <li><button id="button-add-card" @click="addCard()">Add a card</button></li>
+            <li><button id="button-save-deck" @click="saveDeck()">Save changes</button></li>
         </ul>
     </div>
 </template>

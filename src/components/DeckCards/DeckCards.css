@@ -23,7 +23,7 @@
     margin: 1em;
 }
 
-#deck-cards li > button#button-add-card {
+#deck-cards li > button#button-add-card, #deck-cards li > button#button-save-deck {
     display: block;
     width: 100%;
     height: 100%;
