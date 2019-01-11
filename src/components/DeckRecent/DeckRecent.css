@@ -1,0 +1,55 @@
+#deck-recent h1 {
+    background-color: #C72657;
+    color: white;
+    display: inline-block;
+
+    border-radius: 0.25em;
+}
+
+#deck-recent ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#deck-recent li {
+    flex-grow: 1;
+    padding: 0.5em;
+    width: 10em;
+    max-width: 10em;
+    min-height: 7rem;
+
+    line-height: 4rem;
+    overflow: hidden;
+
+}
+
+#deck-recent li div, #deck-recent li button {
+    transition: all 0.2s;
+    box-shadow: 0px 0px 0px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+}
+
+#deck-recent li div:hover, #deck-recent li button:hover {
+    box-shadow: -4px 3px 5px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+    transform: translate(0.2em, -0.2em);
+
+
+    transition: all 0.2s;
+}
+
+#deck-recent .deck {
+    display: block;
+    background-color: #C72657;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    height: 100%;
+    line-height: 4rem;
+    user-select: none;
+}
+
+.deck .deck-name {
+    display: block;
+    height: 100%;
+    padding: 2em;
+}

@@ -9,9 +9,16 @@ export default {
 		}
 	},
 	methods: {
+		/**
+		 * Closes the popup
+		 */
 		close: function(){
 			this.$parent.closePopup();
 		},
+
+		/**
+		 * Creates the deck and closes the popup
+		 */
 		createDeck: async function() {
 			DeckAPI.createDeck(this.$data.deckName, AccessToken.token);
 			this.$eventBus.$emit("DeckCreated");

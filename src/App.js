@@ -1,13 +1,11 @@
 import SearchBarComponent from './components/SearchBar/SearchBar.vue'
 import SearchResultComponent from './components/SearchResult/SearchResult.vue'
 import DeckDashboardComponent from './components/DeckDashboard/DeckDashboard.vue'
+import DeckRecentComponent from './components/DeckRecent/DeckRecent.vue'
 import LoginComponent from './components/Login/Login.vue'
 import RegisterComponent from './components/Register/Register.vue'
 import DeckDetailsComponent from './components/DeckDetails/DeckDetails.vue'
-import AccessToken from './model/AccessToken';
-
-
-import User from './model/User'
+import DeckCardsComponent from './components/DeckCards/DeckCards.vue'
 
 
 export default {
@@ -16,22 +14,28 @@ export default {
         'SearchBar': SearchBarComponent,
         'SearchResult': SearchResultComponent,
         'DeckDashboard': DeckDashboardComponent,
+        'DeckRecent': DeckRecentComponent,
         'Login': LoginComponent,
         'Register': RegisterComponent,
         'DeckDetails': DeckDetailsComponent,
+        'DeckCards': DeckCardsComponent
     },
     created: function() {
-        this.$on('ConnectionEvent', (access_token) => {
-            AccessToken.token = access_token;
-            this.changePerspective('home');
+        this.$eventBus.$on('ShowDeckDetails', (id) => {
+            this.$data.shownDeck = id;
+            this.changePerspective('deck-details');
         });
 
-        this.$on('SearchStartedEvent', () => {
+        this.$eventBus.$on('ChangePerspective', (perspectiveName) => {
+           this.changePerspective(perspectiveName);
+        });
+
+        this.$eventBus.$on('SearchStartedEvent', () => {
             this.changePerspective('search');
             this.$data.searchStarted = true;
         });
 
-        this.$on('SearchFinishedEvent', (searchResults) => {
+        this.$eventBus.$on('SearchFinishedEvent', (searchResults) => {
             this.$data.searchStarted = false;
             this.refreshSearchResult(searchResults)
         });
@@ -72,7 +76,8 @@ export default {
             searchStarted: false,
             perspective: 'login',
             popup: null,
-            popupShown: false
+            popupShown: false,
+            shownDeck: null
         }
     }
 }
