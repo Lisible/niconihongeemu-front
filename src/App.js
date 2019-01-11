@@ -6,6 +6,7 @@ import LoginComponent from './components/Login/Login.vue'
 import RegisterComponent from './components/Register/Register.vue'
 import DeckDetailsComponent from './components/DeckDetails/DeckDetails.vue'
 import DeckCardsComponent from './components/DeckCards/DeckCards.vue'
+import DeckStudyComponent from './components/DeckStudy/DeckStudy.vue'
 
 
 export default {
@@ -18,7 +19,8 @@ export default {
         'Login': LoginComponent,
         'Register': RegisterComponent,
         'DeckDetails': DeckDetailsComponent,
-        'DeckCards': DeckCardsComponent
+        'DeckCards': DeckCardsComponent,
+        'DeckStudy': DeckStudyComponent
     },
     created: function() {
         this.$eventBus.$on('ShowDeckDetails', (id) => {

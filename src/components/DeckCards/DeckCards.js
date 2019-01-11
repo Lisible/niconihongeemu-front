@@ -16,11 +16,11 @@ export default {
     },
     methods: {
         addCard: async function() {
-            // TODO Récupérer l'id sinon l'edit ne marche pas
-            const card = new Card(null, "Front", "Back");
-            const response = await DeckAPI.addCard(AccessToken.token, this.deckId, card);
-            if(response.status == 200)
-                this.cards.push(card);
+            const response = await DeckAPI.addCard(AccessToken.token, this.deckId, new Card(null, "Front", "Back"));
+            if(response.status == 200) {
+                const addedCard = await response.json();
+                this.cards.push(addedCard);
+            }
         },
         deleteCard: async function(cardIndex) {
             const cardId = this.cards[cardIndex].id;

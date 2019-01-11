@@ -19,9 +19,29 @@ export default {
         /**
          * Redirects to the DeckCards view
          */
-        showDeckCards: async function() {
+        showDeckCards: function() {
             this.$eventBus.$emit('ChangePerspective', 'deck-cards');
-        }
+        },
+        /**
+         *  Redirects to the DeckStudy view
+         */
+         studyDeck: function() {
+            this.$eventBus.$emit('ChangePerspective', 'deck-study');
+         },
+         importJson: function() {
+            new FileReader();
+         },
+         exportJson: function() {
+            const fileData = JSON.stringify(this.$data.currentDeck);
+            const downloadElement = document.createElement('a');
+            downloadElement.href = 'data:text/plain;charset=utf-8,' + fileData;
+            downloadElement.download = 'deck.json';
+            document.body.appendChild(downloadElement);
+            downloadElement.click();
+            setTimeout(() => {
+                document.body.removeChild(downloadElement);
+            }, 0);
+         }
 	},
 	data: function() {
 		return {

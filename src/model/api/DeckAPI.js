@@ -78,7 +78,7 @@ export default class DeckAPI {
 		const response = await fetch(END_POINT + "/" + deckId + "/cards/?access_token=" + accessToken);
 		const cardsData = await response.json();
 		const cards = cardsData.map((cardData) => {
-			return new Card(cardData.id, cardData.front, cardData.back)
+			return new Card(cardData.id, cardData.front, cardData.back, cardData.nextRevisionDate, cardData.streak)
 		});
 
 		return cards;

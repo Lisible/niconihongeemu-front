@@ -1,8 +1,8 @@
 <template>
     <div id="deck-recent">
-        <h1>Recently studied decks</h1>
+        <h1>Decks to revise</h1>
         <ul>
-            <li v-for="(deck, key) in decks" @click="showDeckDetails()" :key="key">
+            <li v-for="(deck, key) in decks.filter((deck) => deck.getCardToReviseCount() > 0) " @click="showDeckDetails(deck.getId())" :key="key">
                 <div class="deck">
 					<span class="deck-name">{{ deck.getName() }}
 					</span>

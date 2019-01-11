@@ -13,13 +13,13 @@ export default {
         this.reloadDecks();
     },
     methods: {
-        showDeckDetails: function() {
-            this.$eventBus.$emit('ChangePerspective', 'deck-details');
+        showDeckDetails: function(id) {
+            this.$eventBus.$emit('ShowDeckDetails', id);
         },
         reloadDecks: function() {
             setTimeout(async () => {
                 this.$data.decks = await DeckAPI.getUserDecks(AccessToken.token);
-            }, 100);
+            }, 100); 
         },
     }
 }

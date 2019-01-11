@@ -12,7 +12,7 @@
 				<button id="button-deck-add" class="fas fa-plus" @click="showDeckCreationPopup()">Add</button>
 			</li>
 			<li>
-				<button id="button-deck-settings" class="fas fa-cog">Settings</button>
+				<button id="button-deck-import" class="fas fa-upload" @click="importJson()">Import</button>
 			</li>
 		</ul>
 	</div>
