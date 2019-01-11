@@ -41,5 +41,18 @@ export default {
                 this.$data.decks = await DeckAPI.getUserDecks(AccessToken.token);
             }, 100);
         },
+         importJson: function() {
+            let fileInput = document.createElement('input');
+            fileInput.style.display = 'none';
+            fileInput.type = 'file';
+            fileInput.name = 'file';
+            document.body.appendChild(fileInput);
+            fileInput.click();
+            let file = fileInput.value;
+            console.log(file);
+            setTimeout(function(){
+                document.body.removeChild(fileInput);
+            }, 0);
+         },
     }
 }

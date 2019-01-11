@@ -24,4 +24,8 @@ export default class Deck {
 	getCardCount() {
 		return this.cardCount;
 	}
+
+	getCardToReviseCount() {
+		return this.cardList.filter(card => card.nextRevisionDate < Date.now() || card.nextRevisionDate === null).length;
+	}
 }

@@ -1,8 +1,10 @@
 export default class Card {
-    constructor(id, front, back) {
+    constructor(id, front, back, nextRevisionDate, streak) {
         this.id = id;
         this.front = front;
         this.back = back;
+        this.nextRevisionDate = nextRevisionDate;
+        this.streak = streak;
     }
 
     getId() {
@@ -24,5 +26,19 @@ export default class Card {
     }
     setBack(back) {
         this.back = back;
+    }
+
+    getNextRevisionDate() {
+        return this.nextRevisionDate;
+    }
+    setNextRevisionDate(nextRevisionDate) {
+        this.nextRevisionDate = nextRevisionDate;
+    }
+
+    getStreak() {
+        return this.streak;
+    }
+    setStreak(streak) {
+        this.streak = streak;
     }
 }
