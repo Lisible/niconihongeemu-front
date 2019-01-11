@@ -5,10 +5,10 @@
             <li v-for="(card, key) in cards" :key="key" >
                 <button class="button-delete-card fas fa-trash-alt" @click="deleteCard(key)">Delete</button>
                 <div class="card-front">
-                    <textarea wrap="hard" v-model="card.front"></textarea>
+                    <textarea wrap="hard" v-model="card.front" v-on:blur="finishedEditing(card)"></textarea>
                 </div>
                 <div class="card-back">
-                    <textarea wrap="hard" v-model="card.back"></textarea>
+                    <textarea wrap="hard" v-model="card.back" v-on:blur="finishedEditing(card)"></textarea>
                 </div>
             </li>
             <li><button id="button-add-card" @click="addCard()">Add a card</button></li>
