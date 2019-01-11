@@ -12,12 +12,14 @@
 }
 
 #deck-cards ul {
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
     text-align: center;
 }
 
 #deck-cards li {
     display: inline-block;
+    flex-grow: 1;
     min-width: 13em;
     height: 17em;
     margin: 1em;
@@ -27,6 +29,7 @@
     display: block;
     width: 100%;
     height: 100%;
+    margin-top: 1em;
 
     background-color: #C72657;
     color: white;
@@ -50,7 +53,13 @@
 
 #deck-cards li > button.button-delete-card:before {
     position: relative;
-    color: white;
+
+    color: #C72657;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    left: -1em;
+    top: -0.5em;
+    background-color: white;
 }
 
 

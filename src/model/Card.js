@@ -1,7 +1,15 @@
 export default class Card {
-    constructor() {
-        this.front = 'Card front';
-        this.back = 'Card back';
+    constructor(id, front, back) {
+        this.id = id;
+        this.front = front;
+        this.back = back;
+    }
+
+    getId() {
+        return this.id;
+    }
+    setId(id) {
+        this.id = id;
     }
 
     getFront() {
