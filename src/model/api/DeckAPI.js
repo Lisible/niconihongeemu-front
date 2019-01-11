@@ -17,7 +17,7 @@ export default class DeckAPI {
 	static async getUserDecks(accessToken) {
 		const response = await fetch(END_POINT + "?access_token=" + accessToken); 
 		const decksData = await response.json();
-		const decks = decksData.map((deckData) => new Deck(deckData.name, deckData.cardList));
+		const decks = decksData.map((deckData) => new Deck(deckData.id, deckData.name, deckData.cardList));
 
 		return decks;
 	}

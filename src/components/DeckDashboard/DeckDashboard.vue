@@ -2,7 +2,7 @@
 	<div id="deck-dashboard">
 		<h1>Your decks</h1>
 		<ul>
-			<li v-for="deck in decks" @click="showDeckDetails()">
+			<li v-for="deck in decks" @click="showDeckDetails(deck.getId())">
 				<div class="deck">
 					<span class="deck-name">{{ deck.getName() }}
 					</span>

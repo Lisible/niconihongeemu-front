@@ -20,7 +20,7 @@ export default {
 		});
 	},
 	methods: {
-        showDeckDetails: function() {
+        showDeckDetails: function(id) {
         	this.$parent.changePerspective('deck-details');
         },
 		showDeckCreationPopup: function() {
