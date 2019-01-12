@@ -31,6 +31,7 @@ export default {
         onCorrectButtonClick: async function() {
             this.currentCard.streak++;
             this.currentCard.nextRevisionDate = +Date.now() + MINIMUM_DELAY * (this.currentCard.streak + 1);
+            await DeckAPI.editCard(AccessToken.token, this.$props.deckId, this.currentCard);
             this.nextCard();
         },
         nextCard: function() {
