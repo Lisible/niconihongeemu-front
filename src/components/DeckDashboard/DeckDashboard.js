@@ -41,6 +41,13 @@ export default {
                 this.$data.decks = await DeckAPI.getUserDecks(AccessToken.token);
             }, 100);
         },
+
+        importDeck: async function(deck) {
+            await DeckAPI.importDeck(deck.name, deck.cardList, AccessToken.token);
+            this.reloadDecks();
+        },
+
+
          importJson: function() {
             let fileInput = document.createElement('input');
             fileInput.style.display = 'none';
@@ -48,8 +55,15 @@ export default {
             fileInput.name = 'file';
             document.body.appendChild(fileInput);
             fileInput.click();
-            let file = fileInput.value;
-            console.log(file);
+            fileInput.addEventListener("change", async (e) => {       
+                const file = e.target.files[0];
+                let fileReader = new FileReader();
+                fileReader.onload = async (event) => {
+                    const deckToImport = JSON.parse(event.target.result);
+                    await this.importDeck(deckToImport);
+                } ;
+                fileReader.readAsText(file);
+            });
             setTimeout(function(){
                 document.body.removeChild(fileInput);
             }, 0);

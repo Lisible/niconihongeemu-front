@@ -28,11 +28,15 @@ export default {
          studyDeck: function() {
             this.$eventBus.$emit('ChangePerspective', 'deck-study');
          },
-         importJson: function() {
-            new FileReader();
-         },
+
          exportJson: function() {
-            const fileData = JSON.stringify(this.$data.currentDeck);
+            let fileData = JSON.parse(JSON.stringify(this.$data.currentDeck));
+
+            // Removing IDs on the copied object
+            delete fileData.id;
+            fileData.cardList = fileData.cardList.map(c => { delete c.id; return c; });
+            fileData = JSON.stringify(fileData);
+
             const downloadElement = document.createElement('a');
             downloadElement.href = 'data:text/plain;charset=utf-8,' + fileData;
             downloadElement.download = 'deck.json';

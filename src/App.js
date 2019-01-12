@@ -9,6 +9,10 @@ import DeckCardsComponent from './components/DeckCards/DeckCards.vue'
 import DeckStudyComponent from './components/DeckStudy/DeckStudy.vue'
 
 
+import cfg from '@/config.json';
+import Config from '@/model/Config'
+Config.backend_domain = cfg.backend_domain;
+
 export default {
     name: 'app',
     components: {
@@ -22,6 +26,7 @@ export default {
         'DeckCards': DeckCardsComponent,
         'DeckStudy': DeckStudyComponent
     },
+    
     created: function() {
         this.$eventBus.$on('ShowDeckDetails', (id) => {
             this.$data.shownDeck = id;
