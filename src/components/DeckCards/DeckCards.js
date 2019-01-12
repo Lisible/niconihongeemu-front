@@ -25,19 +25,17 @@ export default {
         deleteCard: async function(cardIndex) {
             const cardId = this.cards[cardIndex].id;
             const response = await DeckAPI.deleteCard(AccessToken.token, this.deckId, cardId);
-            console.log(response);
             if(response.status == 200)
                 this.cards.splice(cardIndex, 1);
         },
         finishedEditing: async function(card) {
-            const response = await DeckAPI.editCard(AccessToken.token, this.deckId, card);
+            await DeckAPI.editCard(AccessToken.token, this.deckId, card);
         },
         saveDeck: function() {
             this.$eventBus.$emit("ChangePerspective", "deck-dashboard");
         },
         loadDeckCards: async function(shownDeckId) {
             this.cards = await DeckAPI.getDeckCards(AccessToken.token, shownDeckId);
-            console.log(this.cards);
         },
     }
 }

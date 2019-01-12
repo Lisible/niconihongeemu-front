@@ -5,13 +5,27 @@ import Card from '@/model/Card';
 
 export default class DeckAPI {
 	static async createDeck(deckName, accessToken) {
-		return await fetch(END_POINT + "?access_token=" + accessToken, {
+		const response = await fetch(END_POINT + "?access_token=" + accessToken, {
 			method: 'POST',
 			headers: {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify({name: deckName, cardList: []})
+		});
+
+		const responseData = await response.json();
+		return responseData.id;
+	}
+
+	static async importDeck(deckName, cardList, accessToken) {
+		await fetch(END_POINT + "?access_token=" + accessToken, {
+			method: 'POST',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({name: deckName, cardList: cardList})
 		});
 	}
 
@@ -42,7 +56,7 @@ export default class DeckAPI {
 	}
 
 	static async addCard(accessToken, deckId, card) {
-		return await fetch(END_POINT + "/" + deckId + "/cards/?access_token=" + accessToken, {
+		const response = await fetch(END_POINT + "/" + deckId + "/cards/?access_token=" + accessToken, {
 			method: 'POST',
 			headers: {
 				'Accept': 'application/json',
@@ -50,6 +64,8 @@ export default class DeckAPI {
 			},
 			body: JSON.stringify(card)
 		});
+
+		return response;
 	}
 
 

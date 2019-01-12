@@ -29,10 +29,8 @@ export default {
             this.nextCard();
         },
         onCorrectButtonClick: async function() {
-            console.log(this.currentCard);
             this.currentCard.streak++;
             this.currentCard.nextRevisionDate = +Date.now() + MINIMUM_DELAY * (this.currentCard.streak + 1);
-            console.log(await DeckAPI.editCard(AccessToken.token, this.$props.deckId, this.currentCard));
             this.nextCard();
         },
         nextCard: function() {
