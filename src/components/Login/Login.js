@@ -16,6 +16,7 @@ export default {
 		 */
 		connect: async function(){
 			const response = await AuthenticationAPI.authenticate(this.login, this.password);
+			console.log(response);
 			const content = await response.json();
 
 			if(this.$data.login === '') {

@@ -1,8 +1,12 @@
-const END_POINT = "http://localhost:3000/authentication";
+import Configuration from '@/model/Config'
 
 export default class AuthenticationAPI {
+	static getEndPoint() {
+		return Configuration.backend_domain + "/authentication";
+	}
+
 	static async registerUser(login, password) {
-		return await fetch(END_POINT + "/user", {
+		return await fetch(this.getEndPoint() + "/user", {
 			method: 'POST',
 			headers: {
 				'Accept': 'application/json',
@@ -13,7 +17,7 @@ export default class AuthenticationAPI {
 	}
 
 	static async authenticate(login, password) {
-		return await fetch(END_POINT + "/accessToken", {
+		return await fetch(this.getEndPoint() + "/accessToken", {
 			method: 'POST',
 			headers: {
 				'Accept': 'application/json',

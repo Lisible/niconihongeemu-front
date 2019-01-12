@@ -1,10 +1,12 @@
 import Kanji from '@/model/Kanji';
-
-const ENDPOINT = 'http://localhost:3000/dictionnary/kanji/'; // TODO make configurable
-
+import Configuration from '@/model/Config'
 export default class KanjiAPI {
+	static getEndPoint() {
+		return Configuration.backend_domain + "/dictionnary/kanji/";
+	}
+
 	static searchKanji(query, accessToken) {
-		return fetch(ENDPOINT + query + "?access_token=" + accessToken)
+		return fetch(this.getEndPoint() + query + "?access_token=" + accessToken)
 		.then(results => results.json())
 		.then(results => {
 			let kanjis = []

@@ -1,10 +1,13 @@
 import Word from '@/model/Word';
-
-const ENDPOINT = 'http://localhost:3000/dictionnary/word/';
+import Configuration from '@/model/Config'
 
 export default class WordAPI {
+	static getEndPoint() {
+		return Configuration.backend_domain + "/dictionnary/word/";
+	}
+
 	static searchWord(query, accessToken) {
-		return fetch(ENDPOINT + query + "?access_token=" + accessToken)
+		return fetch(this.getEndPoint() + query + "?access_token=" + accessToken)
 		.then(results => results.json())
 		.then(results => {
 			let words = []
