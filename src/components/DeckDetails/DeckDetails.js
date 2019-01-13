@@ -29,6 +29,9 @@ export default {
             this.$eventBus.$emit('ChangePerspective', 'deck-study');
          },
 
+        /**
+         * Exports a given deck to a JSON file
+         */
          exportJson: function() {
             let fileData = JSON.parse(JSON.stringify(this.$data.currentDeck));
 

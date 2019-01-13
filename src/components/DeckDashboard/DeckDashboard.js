@@ -42,13 +42,19 @@ export default {
             }, 100);
         },
 
+        /**
+        * Imports an external deck
+        * @param deck The external deck to import
+        */
         importDeck: async function(deck) {
             await DeckAPI.importDeck(deck.name, deck.cardList, AccessToken.token);
             this.reloadDecks();
         },
 
-
-         importJson: function() {
+        /**
+        * Opens a file dialog to get JSON data from file
+        */
+        importJson: function() {
             let fileInput = document.createElement('input');
             fileInput.style.display = 'none';
             fileInput.type = 'file';
@@ -67,6 +73,6 @@ export default {
             setTimeout(function(){
                 document.body.removeChild(fileInput);
             }, 0);
-         },
+        },
     }
 }
