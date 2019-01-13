@@ -6,6 +6,11 @@ export default class WordAPI {
 		return Configuration.backend_domain + "/dictionnary/word/";
 	}
 
+	/**
+	* Searches a word specified by a given query
+	* @param query The searched word
+	* @param accessToken the access token of the user
+	*/
 	static searchWord(query, accessToken) {
 		return fetch(this.getEndPoint() + query + "?access_token=" + accessToken)
 		.then(results => results.json())
