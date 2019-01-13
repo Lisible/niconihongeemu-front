@@ -82,6 +82,12 @@ export default class DeckAPI {
 		});
 	}
 
+	/**
+	* Edits a given cards from a given deck
+	* @param accessToken The acces token of the user
+	* @param deckId the id of the deck containing to card to edit
+	* @param card The card to edit
+	*/
 	static async editCard(accessToken, deckId, card) {
 		return await fetch(this.getEndPoint() + "/" + deckId + "/cards/" + card.id + "?access_token=" + accessToken, {
 			method: 'PUT',
@@ -93,6 +99,12 @@ export default class DeckAPI {
 		});
 	}
 
+	/**
+	* Retrieves the cards of a given deck
+	* @param accessToken The acces token of the user
+	* @param deckID the id of the deck to retrieve
+	* @return The cards of the given deck
+	*/
 	static async getDeckCards(accessToken, deckId) {
 		const response = await fetch(this.getEndPoint() + "/" + deckId + "/cards/?access_token=" + accessToken);
 		const cardsData = await response.json();

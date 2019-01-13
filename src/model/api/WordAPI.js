@@ -10,6 +10,7 @@ export default class WordAPI {
 	* Searches a word specified by a given query
 	* @param query The searched word
 	* @param accessToken the access token of the user
+	* @return The definitions associated to the word
 	*/
 	static searchWord(query, accessToken) {
 		return fetch(this.getEndPoint() + query + "?access_token=" + accessToken)
