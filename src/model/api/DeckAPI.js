@@ -7,6 +7,11 @@ export default class DeckAPI {
 		return Configuration.backend_domain + "/deck";
 	}
 
+	/**
+	 * Creates a deck
+	 * @param deckName The name of the deck
+	 * @param accessToken The access token of the user
+	 */
 	static async createDeck(deckName, accessToken) {
 		const response = await fetch(this.getEndPoint() + "?access_token=" + accessToken, {
 			method: 'POST',
@@ -21,6 +26,12 @@ export default class DeckAPI {
 		return responseData.id;
 	}
 
+	/**
+	 * Imports a deck
+	 * @param deckName The name of the deck
+	 * @param cardList The cards of the deck
+	 * @param accessToken The access token of the user
+	 */
 	static async importDeck(deckName, cardList, accessToken) {
 		await fetch(this.getEndPoint() + "?access_token=" + accessToken, {
 			method: 'POST',
@@ -32,6 +43,11 @@ export default class DeckAPI {
 		});
 	}
 
+	/**
+	 * Returns a user's deck
+	 * @param deckId The id of the user's deck
+	 * @param accessToken The access token of the user
+	 */
 	static async getUserDeck(accessToken, deckId) {
 		const response = await fetch(this.getEndPoint() + "/" + deckId + "?access_token=" + accessToken);
 		const deckData = await response.json();
@@ -39,7 +55,10 @@ export default class DeckAPI {
 
 		return deck;
 	}
-
+	/**
+	 * Returns a user's decks
+	 * @param accessToken The access token of the user
+	 */
 	static async getUserDecks(accessToken) {
 		const response = await fetch(this.getEndPoint() + "?access_token=" + accessToken);
 		const decksData = await response.json();
@@ -48,6 +67,11 @@ export default class DeckAPI {
 		return decks;
 	}
 
+	/**
+	 * Deletes a deck
+	 * @param accessToken The access token of the user
+	 * @param deckId THe id of the deck
+	 */
 	static async deleteDeck(accessToken, deckId) {
 		return await fetch(this.getEndPoint() + "/" + deckId + "?access_token=" + accessToken, {
 			method: 'DELETE',
@@ -58,6 +82,12 @@ export default class DeckAPI {
 		});
 	}
 
+	/**
+	 * Adds a card to a deck
+	 * @param accessToken The access token of the user
+	 * @param deckId The id of the deck
+	 * @param card The card to add
+	 */
 	static async addCard(accessToken, deckId, card) {
 		const response = await fetch(this.getEndPoint() + "/" + deckId + "/cards/?access_token=" + accessToken, {
 			method: 'POST',
@@ -70,8 +100,13 @@ export default class DeckAPI {
 
 		return response;
 	}
-
-
+	
+	/**
+	 * Deletes a card from a deck
+	 * @param accessToken The access token of the user
+	 * @param deckId The id of the deck
+	 * @param cardId The id card of the card to delete
+	 */
 	static async deleteCard(accessToken, deckId, cardId) {
 		return await fetch(this.getEndPoint() + "/" + deckId + "/cards/" + cardId +  "?access_token=" + accessToken, {
 			method: 'DELETE',
