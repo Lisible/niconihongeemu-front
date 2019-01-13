@@ -5,6 +5,11 @@ export default class KanjiAPI {
 		return Configuration.backend_domain + "/dictionnary/kanji/";
 	}
 
+	/**
+	* Searches a kanji specified by a given query
+	* @param query The searched kanji
+	* @param accessToken the access token of the user
+	*/
 	static searchKanji(query, accessToken) {
 		return fetch(this.getEndPoint() + query + "?access_token=" + accessToken)
 		.then(results => results.json())
