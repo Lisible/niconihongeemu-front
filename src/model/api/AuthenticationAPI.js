@@ -5,6 +5,11 @@ export default class AuthenticationAPI {
 		return Configuration.backend_domain + "/authentication";
 	}
 
+	/**
+	 * Registers a new user
+	 * @param login The login of the user
+	 * @param password The password of the user
+	 */
 	static async registerUser(login, password) {
 		return await fetch(this.getEndPoint() + "/user", {
 			method: 'POST',
@@ -16,6 +21,11 @@ export default class AuthenticationAPI {
 		});
 	}
 
+	/**
+	 * Authenticates a user
+	 * @param login The login of the user
+	 * @param password The password of the user
+	 */
 	static async authenticate(login, password) {
 		return await fetch(this.getEndPoint() + "/accessToken", {
 			method: 'POST',
