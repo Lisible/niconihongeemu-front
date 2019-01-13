@@ -16,6 +16,9 @@ export default {
         }
     },
     methods: {
+        /**
+         * Sends a search request and updates the search results
+         */
         search: async function(){
             const query = this.query;
 

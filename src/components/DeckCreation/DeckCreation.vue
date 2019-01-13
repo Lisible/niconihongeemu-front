@@ -3,7 +3,7 @@
 		<h2>Create a deck</h2>
 		<div class="form-entry">
 			<label for="deck-name">Deck name</label>
-			<input type="text" name="deck-name" v-model="deckName">
+			<input type="text" name="deck-name" v-model="deckName" @keyup.enter="createDeck()">
 		</div>
 		<div class="form-buttons">
 			<button @click="close()">NicoNicancel</button>
