@@ -1,6 +1,8 @@
 # NicoNihonGeemu フロントエンド　！！！
 Vue.js frontend for NicoNihonGeemu
 
+![Demo](https://raw.githubusercontent.com/Lisible/niconihongeemu-front/master/demo.gif)
+
 ## Configuration
 Set the backend URL in the ``src/config.json`` file
 
