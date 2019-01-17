@@ -15,6 +15,7 @@ Config.backend_domain = cfg.backend_domain;
 
 export default {
     name: 'app',
+    mode: 'production',
     components: {
         'SearchBar': SearchBarComponent,
         'SearchResult': SearchResultComponent,

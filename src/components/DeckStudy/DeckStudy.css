@@ -50,6 +50,15 @@
 	background-color: #C72657;
 	color: white;
 	border-radius: 2em 2em 0em 0em;
+	
+	transition: background-color 0.2s, color 0.2s;
+}
+
+#deck-study .card.card-back {
+	color: #C72657;
+	background-color: white;
+
+	transition: background-color 0.2s, color 0.2s;
 }
 
 #deck-study .study-buttons {

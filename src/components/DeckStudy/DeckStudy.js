@@ -50,6 +50,10 @@ export default {
             this.$data.currentCard = this.deckCards.filter(card => card.nextRevisionDate < Date.now() 
                                                                     || card.nextRevisionDate == 0)[0];
             this.flipped = false;
+
+            if(this.$data.currentCard == null) {
+                this.$eventBus.$emit('ShowDeckDetails', this.$props.deckId);
+            }
         }
     }
 }
