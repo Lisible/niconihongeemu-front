@@ -17,7 +17,7 @@ export default {
 		connect: async function(){
 			const response = await AuthenticationAPI.authenticate(this.login, this.password);
 			const content = await response.json();
-
+			
 			if(this.$data.login === '') {
 				this.status = {code: 403, message: "You forgot to type your login D:"};
 				return;
